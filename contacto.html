@@ -1,0 +1,448 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description"
+    content="Contacta con el Monasterio de la Luz — Reservas, consultas y cómo llegar. Monasterio de Santa María de San Salvador de Cañas, La Rioja.">
+  <title>Monasterio de la Luz · Contacto</title>
+  <link rel="icon" href="assets/img/favicon.webp">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link
+    href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,500;0,600;1,300;1,400&family=Jost:wght@300;400;500&display=swap"
+    rel="stylesheet">
+  <link rel="stylesheet" href="css/style.css">
+  <!-- hCaptcha SDK -->
+  <script src="https://js.hcaptcha.com/1/api.js" async defer></script>
+
+  <style>
+    /* ── Checkbox términos ── */
+    .form-check-group {
+      margin-top: .25rem;
+    }
+
+    .form-check-label {
+      display: flex;
+      align-items: center;
+      gap: .7rem;
+      cursor: pointer;
+    }
+
+    .form-check-label input[type="checkbox"] {
+      appearance: none;
+      -webkit-appearance: none;
+      flex-shrink: 0;
+      width: 18px;
+      height: 18px;
+      margin-top: 2px;
+      border: 1px solid rgba(255, 255, 255, .2);
+      border-radius: 4px;
+      background: rgba(255, 255, 255, .05);
+      cursor: pointer;
+      transition: all .18s;
+      position: relative;
+      padding: 0;
+    }
+
+    .form-check-label input[type="checkbox"]:checked {
+      background: var(--c-gold, #b8953a);
+      border-color: var(--c-gold, #b8953a);
+    }
+
+    .form-check-label input[type="checkbox"]:checked::after {
+      content: '';
+      position: absolute;
+      left: 4px;
+      top: 1px;
+      width: 6px;
+      height: 10px;
+      border: 2px solid #fff;
+      border-top: none;
+      border-left: none;
+      transform: rotate(45deg);
+    }
+
+    .form-check-label input[type="checkbox"]:focus-visible {
+      outline: 2px solid var(--c-gold, #b8953a);
+      outline-offset: 2px;
+    }
+
+    .form-check-text {
+      font-size: .6rem;
+      color: rgba(255, 255, 255, .55);
+      line-height: 1.5;
+    }
+
+    .form-check-text a {
+      color: var(--c-gold, #b8953a);
+      text-decoration: underline;
+      text-underline-offset: 3px;
+    }
+
+    .form-check-text a:hover {
+      color: var(--c-gold-lt, #d4b062);
+    }
+
+    /* ── hCaptcha / placeholder ── */
+    .form-captcha-wrap {
+      margin-top: .5rem;
+    }
+
+    .form-captcha-wrap .h-captcha {
+      border-radius: 6px;
+      overflow: hidden;
+    }
+
+    .captcha-placeholder {
+      display: flex;
+      align-items: center;
+      gap: .6rem;
+      padding: .8rem 1rem;
+      border: 1px dashed rgba(255, 255, 255, .15);
+      border-radius: 6px;
+      font-size: .75rem;
+      letter-spacing: .03em;
+      color: rgba(255, 255, 255, .3);
+      background: rgba(255, 255, 255, .03);
+      user-select: none;
+    }
+
+    .captcha-placeholder svg {
+      color: rgba(184, 149, 58, .5);
+      flex-shrink: 0;
+    }
+  </style>
+</head>
+
+<body>
+
+  <div id="nav-placeholder"></div>
+
+  <main>
+
+    <!-- ===== CONTACTO + FORMULARIO ===== -->
+    <section class="section contact-section" id="contacto" aria-labelledby="contact-title" style="padding-top: 8rem;">
+      <div class="container">
+        <div class="contact-grid">
+
+          <!-- Formulario -->
+          <div class="contact-form-side">
+            <span class="sec-over" data-i18n="ct.over">Reservas y consultas</span>
+            <h2 class="sec-title" id="contact-title" data-i18n="ct.title">Contacto</h2>
+            <p class="contact-intro" data-i18n="ct.intro">¿Tienes alguna pregunta sobre tu visita o quieres hacer una
+              reserva? Escríbenos y te responderemos lo antes posible.</p>
+
+            <form class="cform" id="contact-form" novalidate aria-label="Formulario de contacto">
+
+              <div class="form-row">
+                <div class="form-group">
+                  <label for="nombre"><span data-i18n="ct.f.name">Nombre y apellidos</span> <span aria-hidden="true"
+                      style="color:var(--c-gold)">*</span></label>
+                  <input type="text" id="nombre" name="nombre" data-i18n-placeholder="ct.f.name"
+                    placeholder="Nombre y apellidos" required autocomplete="name">
+                </div>
+                <div class="form-group">
+                  <label for="telefono" data-i18n="ct.f.phone">Teléfono</label>
+                  <input type="tel" id="telefono" name="telefono" placeholder="+34 600 000 000" autocomplete="tel">
+                </div>
+              </div>
+
+              <div class="form-group">
+                <label for="email"><span data-i18n="ct.f.email">Correo electrónico</span> <span aria-hidden="true"
+                    style="color:var(--c-gold)">*</span></label>
+                <input type="email" id="email" name="email" placeholder="tu@correo.es" required autocomplete="email">
+              </div>
+
+              <div class="form-row">
+                <div class="form-group">
+                  <label for="tipo-visita"><span data-i18n="ct.f.type">Tipo de visita</span> <span aria-hidden="true"
+                      style="color:var(--c-gold)">*</span></label>
+                  <select id="tipo-visita" name="tipo-visita" required>
+                    <option value="" disabled selected data-i18n="ct.f.type.ph">Selecciona una opción</option>
+                    <option value="no-guiada" data-i18n="ct.f.type.ng">Sin guía</option>
+                    <option value="guiada" data-i18n="ct.f.type.g">Con guía</option>
+                  </select>
+                </div>
+                <div class="form-group">
+                  <label for="num-personas"><span data-i18n="ct.f.people">Número de personas</span> <span
+                      aria-hidden="true" style="color:var(--c-gold)">*</span></label>
+                  <input type="number" id="num-personas" name="num-personas" min="1" max="200" placeholder="Ej: 4"
+                    required>
+                </div>
+              </div>
+
+              <div class="form-group">
+                <label for="ninos" data-i18n="ct.f.kids">Niños entre 6 y 14 años</label>
+                <input type="number" id="ninos" name="ninos" min="0" max="200" placeholder="0" value="0">
+              </div>
+
+              <div class="form-row">
+                <div class="form-group">
+                  <label for="fecha-visita"><span data-i18n="ct.f.date">Fecha de visita preferida</span> <span
+                      aria-hidden="true" style="color:var(--c-gold)">*</span></label>
+                  <input type="date" id="fecha-visita" name="fecha-visita" required>
+                </div>
+                <div class="form-group">
+                  <label for="hora-visita"><span data-i18n="ct.f.time">Horario preferido</span> <span aria-hidden="true"
+                      style="color:var(--c-gold)">*</span></label>
+                  <select id="hora-visita" name="hora-visita" required>
+                    <option value="" disabled selected data-i18n="ct.f.time.ph">Selecciona horario</option>
+                    <optgroup label="— Mañana / Morning —">
+                      <option value="10:30" data-i18n="ct.f.time.m1">Mañana — 10:30 h</option>
+                      <option value="11:30" data-i18n="ct.f.time.m2">Mañana — 11:30 h</option>
+                      <option value="12:30" data-i18n="ct.f.time.m3">Mañana — 12:30 h</option>
+                    </optgroup>
+                    <optgroup label="— Tarde / Afternoon —">
+                      <option value="16:00" data-i18n="ct.f.time.t1">Tarde — 16:00 h</option>
+                      <option value="17:00" data-i18n="ct.f.time.t2">Tarde — 17:00 h</option>
+                      <option value="18:00" data-i18n="ct.f.time.t3">Tarde — 18:00 h</option>
+                    </optgroup>
+                  </select>
+                </div>
+              </div>
+
+              <div class="form-group">
+                <label for="mensaje" data-i18n="ct.f.msg">Mensaje o información adicional</label>
+                <textarea id="mensaje" name="mensaje"
+                  placeholder="Indícanos cualquier información adicional sobre tu visita..." rows="3"></textarea>
+              </div>
+
+              <p class="form-note" data-i18n="ct.f.note">* Campos obligatorios. Tus datos se enviarán únicamente a
+                entradas@monasteriodecanas.org.
+              </p>
+
+              <!-- ── Términos y condiciones ── -->
+              <div class="form-group form-check-group">
+                <label class="form-check-label">
+                  <input type="checkbox" id="terminos" name="terminos" required>
+                  <span class="form-check-text">
+                    <span data-i18n="ct.f.terms.pre">He leído y acepto los</span>
+                    <a href="terminos.html" target="_blank" rel="noopener noreferrer"
+                      data-i18n="ct.f.terms.link">términos y condiciones de reserva</a>
+                    <span aria-hidden="true" style="color:var(--c-gold)"> *</span>
+                  </span>
+                </label>
+              </div>
+
+              <!-- ── hCaptcha ── -->
+              <div class="form-captcha-wrap">
+                <div class="h-captcha" data-sitekey="8c9a93ce-7a40-4502-82cc-55b81cb687a2" data-theme="dark"
+                  data-size="normal">
+                </div>
+              </div>
+
+              <div class="form-submit-row">
+                <button type="submit" class="btn btn-primary" data-i18n="ct.f.submit">Enviar solicitud</button>
+                <span style="font-size:.75rem;color:rgba(255,255,255,.3)" data-i18n="ct.f.reply">Respondemos en menos de
+                  24h</span>
+              </div>
+              <div class="form-success" id="form-success" role="alert" aria-live="polite" data-i18n="ct.f.ok">
+                ✓ Solicitud enviada. Te responderemos en breve.
+              </div>
+            </form>
+          </div>
+
+          <!-- Info + mapa -->
+          <div class="contact-info-side">
+            <div class="contact-info-box">
+              <div class="contact-data">
+                <div class="contact-datum">
+                  <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7"
+                    aria-hidden="true">
+                    <path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z" />
+                    <circle cx="12" cy="10" r="3" />
+                  </svg>
+                  <div>
+                    <strong data-i18n="ct.addr.lbl">Dirección</strong>
+                    <p data-i18n="ct.addr.val">Plaza Carretera 12<br>26312 Cañas, La Rioja, España</p>
+                  </div>
+                </div>
+                <div class="contact-datum">
+                  <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7"
+                    aria-hidden="true">
+                    <path
+                      d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07A19.5 19.5 0 0 1 4.69 12 19.79 19.79 0 0 1 1.61 3.4 2 2 0 0 1 3.6 1.21h3a2 2 0 0 1 2 1.72 12.8 12.8 0 0 0 .7 2.81 2 2 0 0 1-.45 2.11L7.91 8.96a16 16 0 0 0 6.63 6.63l.96-.96a2 2 0 0 1 2.11-.45 12.8 12.8 0 0 0 2.81.7A2 2 0 0 1 22 16.92z" />
+                  </svg>
+                  <div>
+                    <strong data-i18n="ct.phone.lbl">Teléfono</strong>
+                    <a href="tel:+34941379145">(+34) 941 37 91 45</a>
+                  </div>
+                </div>
+                <div class="contact-datum">
+                  <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7"
+                    aria-hidden="true">
+                    <path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z" />
+                    <polyline points="22,6 12,13 2,6" />
+                  </svg>
+                  <div>
+                    <strong data-i18n="ct.email.lbl">Email</strong>
+                    <a href="mailto:entradas@monasteriodecanas.org">entradas@monasteriodecanas.org</a>
+                  </div>
+                </div>
+                <div class="contact-datum">
+                  <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7"
+                    aria-hidden="true">
+                    <circle cx="12" cy="12" r="10" />
+                    <polyline points="12 6 12 12 16 14" />
+                  </svg>
+                  <div>
+                    <strong data-i18n="ct.hours.lbl">Horarios</strong>
+                    <p data-i18n="ct.hours.val">10:30 – 14:00 h<br>16:00 – 19:30 h</p>
+                  </div>
+                </div>
+              </div>
+            </div>
+            <div class="contact-map">
+              <iframe title="Mapa Monasterio de Cañas"
+                src="https://maps.google.com/maps?q=Monasterio+de+Ca%C3%B1as+La+Rioja&t=&z=14&ie=UTF8&iwloc=&output=embed"
+                loading="lazy" allowfullscreen referrerpolicy="no-referrer-when-downgrade">
+              </iframe>
+            </div>
+          </div>
+
+        </div>
+      </div>
+    </section>
+
+  </main>
+
+  <div id="footer-placeholder"></div>
+
+  <!-- EmailJS SDK — envío real de email sin backend -->
+  <script src="https://cdn.jsdelivr.net/npm/@emailjs/browser@4/dist/email.min.js"></script>
+  <script src="js/nav-footer.js"></script>
+  <script src="js/i18n.js"></script>
+  <script src="js/shared.js"></script>
+  <script src="js/cookies-banner.js"></script>
+  <script>
+    /* ============================================================
+       EMAILJS CONFIGURACIÓN
+       ─────────────────────────────────────────────────────────────
+       PASOS PARA ACTIVAR EL ENVÍO REAL:
+       1. Crea cuenta gratuita en https://www.emailjs.com
+          (free tier = 200 emails/mes, sin tarjeta)
+       2. En EmailJS → Email Services → Add New Service
+          Conecta tu cuenta Gmail/Outlook del monasterio.
+          Copia el Service ID → reemplaza 'TU_SERVICE_ID' abajo.
+       3. En EmailJS → Email Templates → Create New Template
+          Configura la plantilla con estas variables:
+            {{from_name}}  {{from_email}}  {{phone}}
+            {{visit_type}} {{people}}      {{children}}
+            {{visit_date}} {{visit_time}}  {{message}}
+          En "To email" pon: entradas@monasteriodecanas.org
+          Copia el Template ID → reemplaza 'TU_TEMPLATE_ID' abajo.
+       4. En EmailJS → Account → Public Key
+          Copia tu Public Key → reemplaza 'TU_PUBLIC_KEY' abajo.
+       ============================================================ */
+    const EMAILJS_SERVICE_ID = 'service_25cycp4';
+    const EMAILJS_TEMPLATE_ID = 'template_3tk7s14';
+    const EMAILJS_PUBLIC_KEY = '3_AxR1MATPmKodCHZ';
+
+    emailjs.init({ publicKey: EMAILJS_PUBLIC_KEY });
+
+    // Min date = hoy
+    const fechaInput = document.getElementById('fecha-visita');
+    if (fechaInput) fechaInput.min = new Date().toISOString().split('T')[0];
+
+    document.getElementById('contact-form')?.addEventListener('submit', async function (e) {
+      e.preventDefault();
+      const f = this;
+      const lang = window.i18n?.getLang() || 'es';
+      const nombre = f.nombre.value.trim();
+      const email = f.email.value.trim();
+      const tel = f.telefono.value.trim();
+      const tipo = f['tipo-visita'].value;
+      const personas = f['num-personas'].value;
+      const ninos = f.ninos.value || '0';
+      const fecha = f['fecha-visita'].value;
+      const hora = f['hora-visita'].value;
+      const msg = f.mensaje.value.trim();
+
+      const errMsg = window.i18n?.t('ct.f.err') || 'Por favor rellena los campos obligatorios.';
+      if (!nombre || !email || !tipo || !personas || !fecha || !hora) {
+        alert(errMsg);
+        return;
+      }
+
+      // Validar aceptación de términos
+      if (!f.terminos.checked) {
+        const termsErr = window.i18n?.getLang() === 'en'
+          ? 'Please accept the booking terms and conditions.'
+          : 'Debes aceptar los términos y condiciones de reserva.';
+        alert(termsErr);
+        return;
+      }
+
+      // Validar hCaptcha — getResponse() devuelve '' si no se ha completado
+      const captchaToken = window.hcaptcha?.getResponse() || '';
+      if (!captchaToken) {
+        const captchaErr = window.i18n?.getLang() === 'en'
+          ? 'Please complete the security captcha.'
+          : 'Por favor completa el captcha de seguridad.';
+        alert(captchaErr);
+        return;
+      }
+
+      const tipoLabel = tipo === 'guiada'
+        ? (lang === 'en' ? 'Guided tour' : 'Con guía')
+        : (lang === 'en' ? 'Self-guided' : 'Sin guía');
+
+      const submitBtn = f.querySelector('[type="submit"]');
+      const successEl = document.getElementById('form-success');
+      const sendingTxt = window.i18n?.t('ct.f.sending') || 'Enviando…';
+      const okTxt = window.i18n?.t('ct.f.ok') || '✓ Solicitud enviada.';
+      const errSend = window.i18n?.t('ct.f.senderr') || 'No se pudo enviar. Escríbenos a entradas@monasteriodecanas.org';
+
+      // UI: loading
+      submitBtn.disabled = true;
+      submitBtn.textContent = sendingTxt;
+
+      const templateParams = {
+        from_name: nombre,
+        from_email: email,
+        phone: tel || '—',
+        visit_type: tipoLabel,
+        people: personas,
+        children: ninos,
+        visit_date: fecha,
+        visit_time: hora,
+        message: msg || '—',
+        reply_to: email,
+      };
+
+      try {
+        await emailjs.send(EMAILJS_SERVICE_ID, EMAILJS_TEMPLATE_ID, templateParams);
+        // Éxito
+        if (successEl) {
+          successEl.textContent = okTxt;
+          successEl.style.display = 'block';
+        }
+        f.reset();
+      } catch (err) {
+        console.error('EmailJS error:', err);
+        // Fallback: abrir cliente de correo con los datos
+        const body = encodeURIComponent(
+          `Nombre: ${nombre}\nEmail: ${email}\nTeléfono: ${tel || '—'}\n` +
+          `Tipo de visita: ${tipoLabel}\nPersonas: ${personas}\nNiños 6-14: ${ninos}\n` +
+          `Fecha: ${fecha}\nHora: ${hora}\n\nMensaje:\n${msg || '—'}`
+        );
+        const subject = encodeURIComponent(`Consulta visita — ${nombre} — ${fecha} ${hora}`);
+        window.location.href = `mailto:entradas@monasteriodecanas.org?subject=${subject}&body=${body}`;
+        if (successEl) {
+          successEl.textContent = errSend;
+          successEl.style.display = 'block';
+          successEl.style.borderColor = 'rgba(220,80,80,.4)';
+          successEl.style.background = 'rgba(220,80,80,.08)';
+          successEl.style.color = '#f0a0a0';
+        }
+      } finally {
+        submitBtn.disabled = false;
+        submitBtn.textContent = window.i18n?.t('ct.f.submit') || 'Enviar solicitud';
+      }
+    });
+  </script>
+</body>
+
+</html>

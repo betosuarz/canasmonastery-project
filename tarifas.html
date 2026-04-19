@@ -1,0 +1,284 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description"
+    content="Tarifas de visita al Monasterio de Cañas: individuales, grupos, niños, visitas guiadas y no guiadas.">
+  <title>Tarifas · Monasterio de la Luz</title>
+  <link rel="icon" href="assets/img/favicon.webp">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link
+    href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,500;0,600;1,300;1,400&family=Jost:wght@300;400;500&display=swap"
+    rel="stylesheet">
+  <link rel="stylesheet" href="css/style.css">
+  <style>
+    @media (max-width: 640px) {
+      div[style*="grid-template-columns:1fr 1fr"] {
+        grid-template-columns: 1fr !important;
+      }
+    }
+  </style>
+</head>
+
+<body>
+  <div id="nav-placeholder"></div>
+  <main>
+
+    <div class="page-hero" aria-label="Encabezado">
+      <span class="page-hero-over" data-i18n="ph.rates.over">Acceso · Visitas</span>
+      <h1 class="page-hero-title" data-i18n="ph.rates.title">Tarifas</h1>
+      <p class="page-hero-sub" data-i18n="ph.rates.sub">Elige la modalidad que mejor se adapta a ti</p>
+      <div class="page-hero-line" aria-hidden="true"></div>
+    </div>
+
+    <section class="section" aria-labelledby="rates-main-title">
+      <div class="container">
+
+        <div class="sec-header reveal">
+          <span class="sec-over" data-i18n="tr.over">Precios</span>
+          <h2 class="sec-title" id="rates-main-title" data-i18n="tr.title">Nuestras tarifas</h2>
+          <p class="sec-desc" data-i18n="tr.desc">Para que puedas elegir las entradas que mejor se adapten a tus
+            necesidades, ofrecemos cuatro opciones diferentes con precios muy asequibles para todos.</p>
+        </div>
+
+        <div class="rates-toggle reveal" role="group" aria-label="Tipo de visita">
+          <button class="rtoggle-btn active" data-group="individual" aria-pressed="true" data-i18n="tr.tog.ind">Visita
+            Individual</button>
+          <button class="rtoggle-btn" data-group="grupal" aria-pressed="false" data-i18n="tr.tog.grp">Visita en
+            Grupo</button>
+        </div>
+
+        <!-- INDIVIDUAL -->
+        <div class="rates-group active" id="rates-individual">
+          <div class="rates-table-section reveal">
+            <h3 class="rates-table-title" data-i18n="tr.sec.ng">Visitas No Guiadas</h3>
+            <div class="rates-cards">
+              <article class="rate-card">
+                <div class="rate-price"><span class="rate-price-num">6<sup>€</sup></span><span class="rate-price-unit">/
+                    persona</span></div>
+                <div class="rate-name" data-i18n="tr.adult">Adulto</div>
+                <ul class="rate-includes">
+                  <li data-i18n="tr.inc.church">Iglesia del siglo XII</li>
+                  <li data-i18n="tr.inc.cloister">El Claustro</li>
+                  <li data-i18n="tr.inc.chapter">Sala Capitular</li>
+                  <li data-i18n="tr.inc.relics">Sala de Reliquias</li>
+                  <li data-i18n="tr.inc.museum">Cilla-Museo</li>
+                </ul>
+              </article>
+              <article class="rate-card reduced">
+                <div class="rate-price"><span class="rate-price-num">4<sup>€</sup></span><span class="rate-price-unit">/
+                    persona</span></div>
+                <div class="rate-name" data-i18n="tr.reduced">Tarifa Reducida</div>
+                <ul class="rate-includes">
+                  <li data-i18n="tr.inc.church">Iglesia del siglo XII</li>
+                  <li data-i18n="tr.inc.cloister">El Claustro</li>
+                  <li data-i18n="tr.inc.chapter">Sala Capitular</li>
+                  <li data-i18n="tr.inc.relics">Sala de Reliquias</li>
+                  <li data-i18n="tr.inc.museum">Cilla-Museo</li>
+                </ul>
+                <p class="rate-note" data-i18n="tr.red.note">Válido para menores de 6 a 14 años acreditados en taquilla.
+                </p>
+              </article>
+              <article class="rate-card">
+                <div class="rate-price"><span class="rate-price-num">0<sup>€</sup></span><span class="rate-price-unit"
+                    data-i18n="tr.free.acc">gratuito</span></div>
+                <div class="rate-name" data-i18n="tr.free">Menores de 6 años</div>
+                <ul class="rate-includes">
+                  <li data-i18n="tr.inc.free">Acceso libre</li>
+                  <li data-i18n="tr.inc.adult">Acompañado de adulto</li>
+                </ul>
+              </article>
+            </div>
+          </div>
+
+          <div class="rates-table-section reveal">
+            <h3 class="rates-table-title" data-i18n="tr.sec.g">Visita Guiada Individual</h3>
+            <div style="display:grid;grid-template-columns:1fr 1fr;gap:2rem;align-items:start;">
+              <article class="rate-card featured">
+                <div class="rate-price"><span class="rate-price-num">8<sup>€</sup></span><span class="rate-price-unit">/
+                    persona</span></div>
+                <div class="rate-name" data-i18n="tr.guided.ind">Guiada · Individual</div>
+                <ul class="rate-includes">
+                  <li data-i18n="tr.inc.church">Iglesia del siglo XII</li>
+                  <li data-i18n="tr.inc.chapter">La Sala Capitular</li>
+                  <li data-i18n="tr.inc.cilla">La Cilla‑Museo</li>
+                  <li data-i18n="tr.inc.relics">Sala de Reliquias</li>
+                  <li data-i18n="tr.inc.guide">Guía especializado incluido</li>
+                </ul>
+              </article>
+              <div class="rates-info-box">
+                <h3 data-i18n="tr.book.title">¿Cómo reservar?</h3>
+                <p data-i18n="tr.book.p">Las visitas guiadas individuales están sujetas a disponibilidad. Contacta con
+                  nosotros con antelación para confirmar fecha y hora.</p>
+                <ul>
+                  <li>Email: <a href="mailto:entradas@monasteriodecanas.org">entradas@monasteriodecanas.org</a></li>
+                  <li>Tel.: <a href="tel:+34941379145">(+34) 941 37 91 45</a></li>
+                </ul>
+                <a href="contacto.html" class="btn btn-outline" data-i18n="tr.reserve.btn">Solicitar reserva</a>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- GRUPAL -->
+        <div class="rates-group" id="rates-grupal" hidden>
+          <div class="rates-table-section reveal">
+            <h3 class="rates-table-title" data-i18n="tr.sec.gng">Visita No Guiada · Grupos</h3>
+            <div class="rates-cards">
+              <article class="rate-card">
+                <div class="rate-price"><span class="rate-price-num">5<sup>€</sup></span><span class="rate-price-unit">/
+                    persona</span></div>
+                <div class="rate-name" data-i18n="tr.grp.25p">Grupos + 25 personas</div>
+                <ul class="rate-includes">
+                  <li data-i18n="tr.inc.church">Iglesia del siglo XII</li>
+                  <li data-i18n="tr.inc.cloister">El Claustro</li>
+                  <li data-i18n="tr.inc.chapter">Sala Capitular</li>
+                  <li data-i18n="tr.inc.relics">Sala de Reliquias</li>
+                  <li data-i18n="tr.inc.museum">Cilla-Museo</li>
+                </ul>
+              </article>
+              <article class="rate-card reduced">
+                <div class="rate-price"><span class="rate-price-num">125<sup>€</sup></span><span
+                    class="rate-price-unit">/ grupo</span></div>
+                <div class="rate-name" data-i18n="tr.grp.25m">Grupos − 25 personas</div>
+                <ul class="rate-includes">
+                  <li data-i18n="tr.inc.church">Iglesia del siglo XII</li>
+                  <li data-i18n="tr.inc.cloister">El Claustro</li>
+                  <li data-i18n="tr.inc.chapter">Sala Capitular</li>
+                  <li data-i18n="tr.inc.relics">Sala de Reliquias</li>
+                  <li data-i18n="tr.inc.museum">Cilla-Museo</li>
+                </ul>
+              </article>
+            </div>
+          </div>
+
+          <div class="rates-table-section reveal">
+            <h3 class="rates-table-title" data-i18n="tr.sec.gg">Suplemento Visita Guiada · Grupos</h3>
+            <div style="display:grid;grid-template-columns:1fr 1fr;gap:2rem;align-items:start;">
+              <article class="rate-card featured">
+                <div class="rate-price"><span class="rate-price-num">+50<sup>€</sup></span><span
+                    class="rate-price-unit">suplemento al precio de grupo</span></div>
+                <div class="rate-name" data-i18n="tr.supp.guide">Guía incluido</div>
+                <ul class="rate-includes">
+                  <li data-i18n="tr.inc.church">Iglesia del siglo XII</li>
+                  <li data-i18n="tr.inc.chapter">La Sala Capitular</li>
+                  <li data-i18n="tr.inc.cilla">La Cilla‑Museo</li>
+                  <li data-i18n="tr.inc.relics">Sala de Reliquias</li>
+                  <li data-i18n="tr.inc.guide">Guía especializado incluido</li>
+                </ul>
+              </article>
+              <div class="rates-info-box">
+                <h3 data-i18n="tr.grp.title">Reservas de grupos</h3>
+                <p data-i18n="tr.grp.p">Para la gestión y reserva de grupos, es necesario contactar previamente.</p>
+                <ul>
+                  <li>Email: <a href="mailto:entradas@monasteriodecanas.org">entradas@monasteriodecanas.org</a></li>
+                  <li>Tel.: <a href="tel:+34941379145">(+34) 941 37 91 45</a></li>
+                </ul>
+                <p data-i18n="tr.grp.p2">La falta de confirmación puede entenderse como cancelación de la reserva.</p>
+                <a href="contacto.html" class="btn btn-outline" data-i18n="tr.grp.btn">Reservar grupo</a>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <div class="rates-note-bar reveal">
+          <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7"
+            aria-hidden="true">
+            <circle cx="12" cy="12" r="10" />
+            <polyline points="12 6 12 12 16 14" />
+          </svg>
+          <p data-i18n="tr.note.txt"></p>
+        </div>
+
+      </div>
+    </section>
+
+    <!-- FAQ -->
+    <section class="section section--alt" aria-labelledby="faq-rates-title">
+      <div class="container">
+        <div class="sec-header reveal">
+          <span class="sec-over" data-i18n="tr.faq.over">Dudas</span>
+          <h2 class="sec-title" id="faq-rates-title" data-i18n="tr.faq.title">Preguntas frecuentes</h2>
+        </div>
+        <div class="faq-list">
+          <div class="faq-item reveal">
+            <button class="faq-q" aria-expanded="false" aria-controls="faq-t1" id="faq-bt1">
+              <span data-i18n="tr.faq.q1">¿Cuáles son los horarios de visita?</span>
+              <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"
+                aria-hidden="true">
+                <polyline points="6 9 12 15 18 9" />
+              </svg>
+            </button>
+            <div class="faq-a" id="faq-t1" hidden data-i18n="tr.faq.a1"></div>
+          </div>
+          <div class="faq-item reveal">
+            <button class="faq-q" aria-expanded="false" aria-controls="faq-t2" id="faq-bt2">
+              <span data-i18n="tr.faq.q2">¿Necesito reserva previa para visitar?</span>
+              <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"
+                aria-hidden="true">
+                <polyline points="6 9 12 15 18 9" />
+              </svg>
+            </button>
+            <div class="faq-a" id="faq-t2" hidden data-i18n="tr.faq.a2"></div>
+          </div>
+          <div class="faq-item reveal">
+            <button class="faq-q" aria-expanded="false" aria-controls="faq-t3" id="faq-bt3">
+              <span data-i18n="tr.faq.q3">¿Se admiten cambios o devoluciones?</span>
+              <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"
+                aria-hidden="true">
+                <polyline points="6 9 12 15 18 9" />
+              </svg>
+            </button>
+            <div class="faq-a" id="faq-t3" hidden data-i18n="tr.faq.a3"></div>
+          </div>
+          <div class="faq-item reveal">
+            <button class="faq-q" aria-expanded="false" aria-controls="faq-t4" id="faq-bt4">
+              <span data-i18n="tr.faq.q4">¿Los descuentos son acumulables?</span>
+              <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"
+                aria-hidden="true">
+                <polyline points="6 9 12 15 18 9" />
+              </svg>
+            </button>
+            <div class="faq-a" id="faq-t4" hidden data-i18n="tr.faq.a4"></div>
+          </div>
+          <div class="faq-item reveal">
+            <button class="faq-q" aria-expanded="false" aria-controls="faq-t5" id="faq-bt5">
+              <span data-i18n="tr.faq.q5">¿El monasterio tiene accesibilidad para personas con movilidad
+                reducida?</span>
+              <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"
+                aria-hidden="true">
+                <polyline points="6 9 12 15 18 9" />
+              </svg>
+            </button>
+            <div class="faq-a" id="faq-t5" hidden data-i18n="tr.faq.a5"></div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+  </main>
+  <div id="footer-placeholder"></div>
+  <script src="js/nav-footer.js"></script>
+  <script src="js/i18n.js"></script>
+  <script src="js/shared.js"></script>
+  <script src="js/cookies-banner.js"></script>
+  <script>
+    const rToggleBtns = document.querySelectorAll('.rtoggle-btn');
+    const rGroups = document.querySelectorAll('.rates-group');
+    rToggleBtns.forEach(btn => {
+      btn.addEventListener('click', () => {
+        const group = btn.dataset.group;
+        rToggleBtns.forEach(b => { b.classList.remove('active'); b.setAttribute('aria-pressed', 'false'); });
+        rGroups.forEach(g => { g.classList.remove('active'); g.hidden = true; });
+        btn.classList.add('active'); btn.setAttribute('aria-pressed', 'true');
+        const ag = document.getElementById('rates-' + group);
+        if (ag) { ag.classList.add('active'); ag.hidden = false; }
+      });
+    });
+  </script>
+</body>
+
+</html>

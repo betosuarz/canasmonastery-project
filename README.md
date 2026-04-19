@@ -1,1 +1,1 @@
-# canasmonastery-project
+# canas-project

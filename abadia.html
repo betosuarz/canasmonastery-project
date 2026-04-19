@@ -1,0 +1,1031 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description"
+    content="Conoce los espacios del Monasterio de Cañas: la Iglesia, el Claustro, la Sala Capitular, la Sala de Reliquias y la Cilla-Museo.">
+  <title>La Abadía · Monasterio de la Luz</title>
+  <link rel="icon" href="assets/img/favicon.webp">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link
+    href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,500;0,600;1,300;1,400&family=Jost:wght@300;400;500&display=swap"
+    rel="stylesheet">
+  <link rel="stylesheet" href="css/style.css">
+  <style>
+    /* ── Lightbox overlay ── */
+    .ab-lb {
+      position: fixed;
+      inset: 0;
+      z-index: 300;
+      background: rgba(12, 10, 7, .95);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      opacity: 0;
+      pointer-events: none;
+      transition: opacity .3s ease;
+    }
+
+    .ab-lb.open {
+      opacity: 1;
+      pointer-events: all;
+    }
+
+    .ab-lb-close {
+      position: fixed;
+      top: 1.25rem;
+      right: 1.5rem;
+      color: rgba(255, 255, 255, .6);
+      font-size: 2rem;
+      line-height: 1;
+      padding: .4rem .6rem;
+      cursor: pointer;
+      background: none;
+      border: none;
+      transition: color .18s;
+      z-index: 10;
+    }
+
+    .ab-lb-close:hover {
+      color: #fff;
+    }
+
+    .ab-lb-img-wrap {
+      position: relative;
+      max-width: min(860px, 90vw);
+      width: 100%;
+    }
+
+    .ab-lb-img {
+      width: 100%;
+      aspect-ratio: 4/3;
+      border-radius: 8px;
+      overflow: hidden;
+    }
+
+    .ab-lb-placeholder {
+      width: 100%;
+      height: 100%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      position: relative;
+      transition: background .25s;
+    }
+
+    .ab-lb-placeholder::before {
+      content: '';
+      position: absolute;
+      inset: 0;
+      background: radial-gradient(ellipse at 50% 80%, rgba(184, 149, 58, .1) 0%, transparent 65%);
+    }
+
+    .ab-lb-label {
+      font-family: 'Cormorant Garamond', serif;
+      font-style: italic;
+      color: rgba(255, 255, 255, .4);
+      font-size: 1.05rem;
+      position: relative;
+      z-index: 1;
+      text-align: center;
+      padding: 1rem;
+    }
+
+    .ab-lb-caption {
+      text-align: center;
+      margin-top: .9rem;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: 1.5rem;
+    }
+
+    .ab-lb-caption-text {
+      font-family: 'Cormorant Garamond', serif;
+      font-style: italic;
+      color: rgba(255, 255, 255, .45);
+      font-size: .95rem;
+    }
+
+    .ab-lb-counter {
+      font-size: .72rem;
+      letter-spacing: .12em;
+      color: rgba(184, 149, 58, .7);
+      font-family: 'Jost', sans-serif;
+    }
+
+    .ab-lb-prev,
+    .ab-lb-next {
+      position: fixed;
+      top: 50%;
+      transform: translateY(-50%);
+      background: rgba(255, 255, 255, .07);
+      border: 1px solid rgba(255, 255, 255, .12);
+      color: rgba(255, 255, 255, .65);
+      width: 48px;
+      height: 48px;
+      border-radius: 50%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      cursor: pointer;
+      transition: all .18s;
+      z-index: 10;
+    }
+
+    .ab-lb-prev {
+      left: 1.25rem;
+    }
+
+    .ab-lb-next {
+      right: 1.25rem;
+    }
+
+    .ab-lb-prev:hover,
+    .ab-lb-next:hover {
+      background: rgba(184, 149, 58, .2);
+      border-color: rgba(184, 149, 58, .5);
+      color: #fff;
+    }
+
+    .ab-lb-prev[hidden],
+    .ab-lb-next[hidden] {
+      display: none;
+    }
+
+    .ab-lb-dots {
+      display: flex;
+      justify-content: center;
+      gap: .4rem;
+      margin-top: .6rem;
+    }
+
+    .ab-lb-dot {
+      width: 6px;
+      height: 6px;
+      border-radius: 50%;
+      background: rgba(255, 255, 255, .25);
+      transition: background .18s;
+      border: none;
+      cursor: pointer;
+      padding: 0;
+    }
+
+    .ab-lb-dot.active {
+      background: var(--c-gold, #b8953a);
+    }
+
+    /* ── Clickable thumbnails ── */
+    .abbey-photo {
+      cursor: pointer;
+      position: relative;
+    }
+
+    .abbey-photo::after {
+      content: '';
+      position: absolute;
+      inset: 0;
+      background: rgba(184, 149, 58, 0);
+      border-radius: inherit;
+      transition: background .25s;
+      pointer-events: none;
+    }
+
+    .abbey-photo:hover::after {
+      background: rgba(184, 149, 58, .08);
+    }
+
+    .abbey-photo .ab-zoom-hint {
+      position: absolute;
+      inset: 0;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      opacity: 0;
+      transition: opacity .25s;
+      z-index: 2;
+      pointer-events: none;
+    }
+
+    .abbey-photo:hover .ab-zoom-hint {
+      opacity: 1;
+    }
+
+    .abbey-photo .ab-zoom-hint svg {
+      width: 32px;
+      height: 32px;
+      color: rgba(255, 255, 255, .75);
+      filter: drop-shadow(0 1px 4px rgba(0, 0, 0, .6));
+    }
+  </style>
+</head>
+
+<body>
+  <div id="nav-placeholder"></div>
+  <main>
+
+    <div class="page-hero" aria-label="Encabezado">
+      <span class="page-hero-over" data-i18n="ph.abbey.over">Patrimonio · Cister</span>
+      <h1 class="page-hero-title" data-i18n="ph.abbey.title">La Abadía</h1>
+      <p class="page-hero-sub" data-i18n="ph.abbey.sub">Monasterio de Santa María de San Salvador de Cañas</p>
+      <div class="page-hero-line" aria-hidden="true"></div>
+    </div>
+
+    <!-- Wrapper correcto: section + container (igual que index.html) -->
+    <section class="section">
+      <div class="container">
+
+        <!-- ═══════════════════════════════════════
+             INTRO — Historia
+             Galería: 1 visible + 3 ocultas = 4 imágenes
+        ══════════════════════════════════════════ -->
+        <div class="abbey-intro reveal">
+          <div class="abbey-intro-text">
+            <span class="sec-over" data-i18n="ab.intro.over">Historia</span>
+            <h2 data-i18n="ab.intro.h2">Un lugar de fe y arte desde el siglo XII</h2>
+            <p data-i18n="ab.intro.p1">El Monasterio de Santa María de San Salvador de Cañas fue fundado en el siglo
+              XII.</p>
+            <p data-i18n="ab.intro.p2">El conjunto arquitectónico reúne varios espacios de singular valor patrimonial.
+            </p>
+            <p data-i18n="ab.intro.p3">Declarado Bien de Interés Cultural, el monasterio forma parte del paisaje
+              histórico y espiritual de La Rioja.</p>
+            <a href="tarifas.html" class="btn btn-outline" style="margin-top:1.5rem" data-i18n="ab.intro.btn">Planificar
+              la visita</a>
+          </div>
+          <div class="abbey-intro-img">
+            <!-- Imagen principal de la sección intro -->
+            <div class="abbey-photo" data-gallery="intro" data-index="0"
+              style="width:100%;height:100%;min-height:320px;border-radius:8px;overflow:hidden;position:relative;"
+              role="button" tabindex="0" aria-label="Ver galería de imágenes">
+              <img src="assets/img/abside-monasterio.webp"
+                alt="Ábside del Monasterio de Santa María de San Salvador de Cañas, siglo XII"
+                style="width:100%;height:100%;min-height:320px;object-fit:cover;display:block;">
+              <span class="ab-zoom-hint" aria-hidden="true">
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8">
+                  <circle cx="11" cy="11" r="7" />
+                  <path d="m21 21-4.35-4.35" />
+                  <path d="M11 8v6M8 11h6" />
+                </svg>
+              </span>
+            </div>
+          </div>
+        </div>
+
+        <!-- Imágenes extra ocultas para la galería "intro" -->
+        <div data-gallery-extra="intro" style="display:none">
+          <div data-label="Vista exterior del monasterio" style="background:linear-gradient(135deg,#1a1510,#2e2419)">
+          </div>
+          <div data-label="Fachada principal" style="background:linear-gradient(145deg,#1c1710,#30251a)"></div>
+          <div data-label="Entorno natural de Cañas" style="background:linear-gradient(145deg,#181410,#2a2118)"></div>
+        </div>
+
+        <!-- <div class="abbey-divider" aria-hidden="true"></div> -->
+
+        <!-- ═══════════════════════════════════════
+             01 — LA IGLESIA
+        ══════════════════════════════════════════ -->
+        <div class="abbey-space reveal" id="iglesia">
+          <div class="abbey-space-header">
+            <span class="abbey-space-num" aria-hidden="true">01</span>
+            <div class="abbey-space-header-text">
+              <span class="tag" data-i18n="ab.s1.tag">Románico · s. XII</span>
+              <h2 data-i18n="ab.s1.title">La Iglesia</h2>
+            </div>
+          </div>
+          <div class="abbey-content-grid">
+            <div class="abbey-text-col">
+              <p data-i18n="ab.s1.p1">El templo actual mide treinta metros de largo y nueve de ancho en el crucero.</p>
+              <p data-i18n="ab.s1.p2">La nave central se prolonga para alojar el coro de las monjas.</p>
+              <p data-i18n="ab.s1.p3">La iglesia conserva un mobiliario modesto, con un "Cristo crucificado" gótico del
+                siglo XIV.</p>
+              <p data-i18n="ab.s1.p4">La sillería del coro, con 26 asientos, data del siglo XVIII.</p>
+            </div>
+            <div class="abbey-photos">
+              <!-- imagen 1 — visible como miniatura principal -->
+              <div class="abbey-photo abbey-photo-main" data-gallery="iglesia" data-index="0" role="button" tabindex="0"
+                aria-label="Ver galería La Iglesia">
+                <div class="abbey-photo-inner" style="padding:0;overflow:hidden;">
+                  <img src="assets/img/abside-cristo.webp" alt="Cristo románico a los pies del ábside"
+                    style="width:100%;height:100%;object-fit:cover;display:block;">
+                </div>
+                <span class="ab-zoom-hint" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor"
+                    stroke-width="1.8">
+                    <circle cx="11" cy="11" r="7" />
+                    <path d="m21 21-4.35-4.35" />
+                    <path d="M11 8v6M8 11h6" />
+                  </svg></span>
+              </div>
+              <!-- imagen 2 -->
+              <div class="abbey-photo" data-gallery="iglesia" data-index="1" role="button" tabindex="0"
+                aria-label="Ver imagen">
+                <div class="abbey-photo-inner" style="padding:0;overflow:hidden;">
+                  <img src="assets/img/iglesia-vidriera.webp" alt="Cerramiento del vano en alabastro"
+                    style="width:100%;height:100%;object-fit:cover;display:block;">
+                </div>
+                <span class="ab-zoom-hint" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor"
+                    stroke-width="1.8">
+                    <circle cx="11" cy="11" r="7" />
+                    <path d="m21 21-4.35-4.35" />
+                    <path d="M11 8v6M8 11h6" />
+                  </svg></span>
+              </div>
+              <!-- imagen 3 -->
+              <div class="abbey-photo" data-gallery="iglesia" data-index="2" role="button" tabindex="0"
+                aria-label="Ver imagen">
+                <div class="abbey-photo-inner" style="padding:0;overflow:hidden;">
+                  <img src="assets/img/abside-cristo-hor.webp" alt="Cristo románico y vidrieras del ábside"
+                    style="width:100%;height:100%;object-fit:cover;display:block;">
+                </div>
+                <span class="ab-zoom-hint" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor"
+                    stroke-width="1.8">
+                    <circle cx="11" cy="11" r="7" />
+                    <path d="m21 21-4.35-4.35" />
+                    <path d="M11 8v6M8 11h6" />
+                  </svg></span>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- Extra imágenes para "iglesia" — imagen 4, visible solo en el lightbox -->
+        <div data-gallery-extra="iglesia" style="display:none">
+          <div data-label="Ábside visto desde el centro de la iglesia" data-src="assets/img/iglesia.webp"></div>
+        </div>
+        <div data-gallery-extra="iglesia" style="display:none">
+          <div data-label="Pantócrator de la clave central de la Iglesia"
+            data-src="assets/img/iglesia-pantocrator.webp"></div>
+        </div>
+        <div data-gallery-extra="iglesia" style="display:none">
+          <div data-label="Nuestra Señora de Cañas" data-src="assets/img/virgen-canas.webp"></div>
+        </div>
+        <div data-gallery-extra="iglesia" style="display:none">
+          <div data-label="Retablo Mayor y sillería del coro" data-src="assets/img/retablo-silleria.webp"></div>
+        </div>
+
+        <!-- <div class="abbey-divider" aria-hidden="true"></div> -->
+
+        <!-- ═══════════════════════════════════════
+             02 — EL RETABLO MAYOR
+        ══════════════════════════════════════════ -->
+        <div class="abbey-space reveal" id="retablo">
+          <div class="abbey-space-header">
+            <span class="abbey-space-num" aria-hidden="true">02</span>
+            <div class="abbey-space-header-text">
+              <span class="tag" data-i18n="ab.s2.tag">Renacimiento · s. XVI</span>
+              <h2 data-i18n="ab.s2.title">El Retablo</h2>
+            </div>
+          </div>
+          <div class="abbey-content-grid">
+            <div class="abbey-text-col">
+              <p data-i18n="ab.s2.p1">Destaca especialmente el retablo renacentista, considerado uno de los mejores de
+                La Rioja, que se trasladó en 1975 al pie de la iglesia desde su ubicación original en el ábside.</p>
+              <p data-i18n="ab.s2.p2">Los bajorrelieves del banco representan, de izquierda a derecha, la "Última Cena",
+                "San Pedro y San Pablo", el Sagrario en el centro, "San Juan y San Andrés" y la "Flagelación de Cristo".
+              </p>
+              <p data-i18n="ab.s2.p3">En las tres calles centrales: el primer piso muestra a la "Virgen" flanqueada por
+                "San Benito" y "San Bernardo". En el segundo piso, "La Adoración de los Reyes". En el tercer piso, la
+                "Asunción de la Virgen". En el ático, un "Calvario" muestra a la Virgen y San Juan al pie de Cristo
+                crucificado.</p>
+            </div>
+            <div class="abbey-photos">
+              <!-- imagen 1 — visible como miniatura principal -->
+              <div class="abbey-photo abbey-photo-main" data-gallery="retablo" data-index="0" role="button" tabindex="0"
+                aria-label="Ver galería del Retablo">
+                <div class="abbey-photo-inner" style="padding:0;overflow:hidden;">
+                  <img src="assets/img/retablo-mayor.webp" alt="Retablo Mayor a los pies del coro"
+                    style="width:100%;height:100%;object-fit:cover;display:block;">
+                </div>
+                <span class="ab-zoom-hint" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor"
+                    stroke-width="1.8">
+                    <circle cx="11" cy="11" r="7" />
+                    <path d="m21 21-4.35-4.35" />
+                    <path d="M11 8v6M8 11h6" />
+                  </svg></span>
+              </div>
+              <!-- imagen 2 -->
+              <div class="abbey-photo" data-gallery="retablo" data-index="1" role="button" tabindex="0"
+                aria-label="Ver imagen">
+                <div class="abbey-photo-inner" style="padding:0;overflow:hidden;">
+                  <img src="assets/img/virgen-retablo.webp" alt="Representación de Santa María de San Salvador en el Retablo Mayor"
+                    style="width:100%;height:100%;object-fit:cover;display:block;">
+                </div>
+                <span class="ab-zoom-hint" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor"
+                    stroke-width="1.8">
+                    <circle cx="11" cy="11" r="7" />
+                    <path d="m21 21-4.35-4.35" />
+                    <path d="M11 8v6M8 11h6" />
+                  </svg></span>
+              </div>
+              <!-- imagen 3 -->
+              <div class="abbey-photo" data-gallery="retablo" data-index="2" role="button" tabindex="0"
+                aria-label="Ver imagen">
+                <div class="abbey-photo-inner" style="padding:0;overflow:hidden;">
+                  <img src="assets/img/calvario-retablo.webp" alt="Escena del Calvario en el ático del Retablo Mayor"
+                    style="width:100%;height:100%;object-fit:cover;display:block;">
+                </div>
+                <span class="ab-zoom-hint" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor"
+                    stroke-width="1.8">
+                    <circle cx="11" cy="11" r="7" />
+                    <path d="m21 21-4.35-4.35" />
+                    <path d="M11 8v6M8 11h6" />
+                  </svg></span>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- Extra imágenes para el "Retablo" — imágenes, visible solo en el lightbox -->
+        <div data-gallery-extra="retablo" style="display:none">
+          <div data-label="Escena de la Asunción de la Virgen" data-src="assets/img/asuncion-retablo.webp">
+          </div>
+        </div>
+        <div data-gallery-extra="retablo" style="display:none">
+          <div data-label="Escena de la Adoración de los Reyes" data-src="assets/img/adoracion-reyes.webp"></div>
+        </div>
+
+        <!-- <div class="abbey-divider" aria-hidden="true"></div> -->
+
+        <!-- ═══════════════════════════════════════
+             03 — EL CLAUSTRO
+        ══════════════════════════════════════════ -->
+        <div class="abbey-space reveal" id="claustro">
+          <div class="abbey-space-header">
+            <span class="abbey-space-num" aria-hidden="true">03</span>
+            <div class="abbey-space-header-text">
+              <span class="tag" data-i18n="ab.s3.tag">Arquitectura Cisterciense</span>
+              <h2 data-i18n="ab.s3.title">El Claustro</h2>
+            </div>
+          </div>
+          <div class="abbey-content-grid">
+            <div class="abbey-text-col">
+              <p data-i18n="ab.s3.p1">El claustro del monasterio es uno de los espacios más serenos de la arquitectura
+                monástica cisterciense en La Rioja.</p>
+              <p data-i18n="ab.s3.p2">La austeridad de sus formas refleja los ideales de la orden del Cister: sencillez,
+                armonía y proporción.</p>
+              <p data-i18n="ab.s3.p3">El recorrido por el claustro ofrece vistas privilegiadas a los diferentes espacios
+                conventuales.</p>
+            </div>
+            <div class="abbey-photos">
+              <!-- imagen 1 -->
+              <div class="abbey-photo abbey-photo-main" data-gallery="claustro" data-index="0" role="button"
+                tabindex="0" aria-label="Ver galería El Claustro">
+                <div class="abbey-photo-inner" style="padding:0;overflow:hidden;">
+                  <img src="assets/img/claustro-patio.webp" alt="Patio del Claustro del Monasterio"
+                    style="width:100%;height:100%;object-fit:cover;display:block;">
+                </div>
+                <span class="ab-zoom-hint" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor"
+                    stroke-width="1.8">
+                    <circle cx="11" cy="11" r="7" />
+                    <path d="m21 21-4.35-4.35" />
+                    <path d="M11 8v6M8 11h6" />
+                  </svg></span>
+              </div>
+              <!-- imagen 2 -->
+              <div class="abbey-photo" data-gallery="claustro" data-index="1" role="button" tabindex="0"
+                aria-label="Ver imagen">
+                <div class="abbey-photo-inner" style="padding:0;overflow:hidden;">
+                  <img src="assets/img/galeria-cilla.webp" alt="Galería de la cilla-museo"
+                    style="width:100%;height:100%;object-fit:cover;display:block;">
+                </div>
+                <span class="ab-zoom-hint" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor"
+                    stroke-width="1.8">
+                    <circle cx="11" cy="11" r="7" />
+                    <path d="m21 21-4.35-4.35" />
+                    <path d="M11 8v6M8 11h6" />
+                  </svg></span>
+              </div>
+              <!-- imagen 3 -->
+              <div class="abbey-photo" data-gallery="claustro" data-index="2" role="button" tabindex="0"
+                aria-label="Ver imagen">
+                <div class="abbey-photo-inner" style="padding:0;overflow:hidden;">
+                  <img src="assets/img/galeria-salacapitular.webp" alt="Galería de la Sala Capitular"
+                    style="width:100%;height:100%;object-fit:cover;display:block;">
+                </div>
+                <span class="ab-zoom-hint" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor"
+                    stroke-width="1.8">
+                    <circle cx="11" cy="11" r="7" />
+                    <path d="m21 21-4.35-4.35" />
+                    <path d="M11 8v6M8 11h6" />
+                  </svg></span>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- Extra imágenes para el "Claustro" — imágenes, visible solo en el lightbox -->
+        <div data-gallery-extra="claustro" style="display:none">
+          <div data-label="Portada de acceso a la Iglesia" data-src="assets/img/claustro-portadaiglesia.webp">
+          </div>
+        </div>
+        <div data-gallery-extra="claustro" style="display:none">
+          <div data-label="Capiteles de una de las portadas en el claustro"
+            data-src="assets/img/claustro-capiteles.webp"></div>
+        </div>
+
+        <!-- <div class="abbey-divider" aria-hidden="true"></div> -->
+
+
+        <!-- ═══════════════════════════════════════
+             04 — SALA CAPITULAR
+        ══════════════════════════════════════════ -->
+
+        <div class="abbey-space reveal" id="sala-capitular">
+          <div class="abbey-space-header">
+            <span class="abbey-space-num" aria-hidden="true">04</span>
+            <div class="abbey-space-header-text">
+              <span class="tag" data-i18n="ab.s4.tag">Vida comunitaria</span>
+              <h2 data-i18n="ab.s4.title">Sala Capitular</h2>
+            </div>
+          </div>
+          <div class="abbey-content-grid">
+            <div class="abbey-text-col">
+              <p data-i18n="ab.s4.p1">La sala capitular es el corazón de la vida comunitaria del monasterio. Es el
+                espacio donde la comunidad de monjas cistercienses se reúne para la lectura del capítulo de la Regla de
+                San Benito, la toma de decisiones y la vida en común.</p>
+              <p data-i18n="ab.s4.p2">Este recinto sagrado guarda la memoria de siglos de espiritualidad y comunidad.
+                Sus muros han sido testigos de los momentos más significativos de la vida monástica.</p>
+              <p data-i18n="ab.s4.p3">La arquitectura sobria y recogida de la sala capitular refleja la espiritualidad
+                propia del Cister: la búsqueda de Dios en el silencio y la sencillez de formas.</p>
+            </div>
+            <div class="abbey-photos">
+              <!-- imagen 1 -->
+              <div class="abbey-photo abbey-photo-main" data-gallery="capitular" data-index="0" role="button"
+                tabindex="0" aria-label="Ver galería Sala Capitular">
+                <div class="abbey-photo-inner" style="padding:0;overflow:hidden;">
+                  <img src="assets/img/sala-capitular.webp" alt="Sala Capitular de la Beata Urraca"
+                    style="width:100%;height:100%;object-fit:cover;display:block;">
+                </div>
+                <span class="ab-zoom-hint" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor"
+                    stroke-width="1.8">
+                    <circle cx="11" cy="11" r="7" />
+                    <path d="m21 21-4.35-4.35" />
+                    <path d="M11 8v6M8 11h6" />
+                  </svg></span>
+              </div>
+              <!-- imagen 2 -->
+              <div class="abbey-photo" data-gallery="capitular" data-index="1" role="button" tabindex="0"
+                aria-label="Ver imagen">
+                <div class="abbey-photo-inner" style="padding:0;overflow:hidden;">
+                  <img src="assets/img/sepulcro-beataurraca.webp" alt="Sepulcro de la Beata Urraca"
+                    style="width:100%;height:100%;object-fit:cover;display:block;">
+                </div>
+                <span class="ab-zoom-hint" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor"
+                    stroke-width="1.8">
+                    <circle cx="11" cy="11" r="7" />
+                    <path d="m21 21-4.35-4.35" />
+                    <path d="M11 8v6M8 11h6" />
+                  </svg></span>
+              </div>
+              <!-- imagen 3 -->
+              <div class="abbey-photo" data-gallery="capitular" data-index="2" role="button" tabindex="0"
+                aria-label="Ver imagen">
+                <div class="abbey-photo-inner" style="padding:0;overflow:hidden;">
+                  <img src="assets/img/portada-salacapitular.webp" alt="Portada de la Sala Capitular en el claustro"
+                    style="width:100%;height:100%;object-fit:cover;display:block;">
+                </div>
+                <span class="ab-zoom-hint" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor"
+                    stroke-width="1.8">
+                    <circle cx="11" cy="11" r="7" />
+                    <path d="m21 21-4.35-4.35" />
+                    <path d="M11 8v6M8 11h6" />
+                  </svg></span>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- Extra imágenes para la "sala capitular" -->
+        <div data-gallery-extra="capitular" style="display:none">
+          <div data-label="Ángeles del Sepulcro" data-src="assets/img/angeles-sepulcro.webp">
+          </div>
+        </div>
+        <div data-gallery-extra="capitular" style="display:none">
+          <div data-label="Capitel de la Sala Capitular" data-src="assets/img/capitel-salacapitular.webp">
+          </div>
+        </div>
+        <div data-gallery-extra="capitular" style="display:none">
+          <div data-label="Detalle del Sepulcro de la Beata Urraca" data-src="assets/img/sepulcro-cara-det.webp">
+          </div>
+        </div>
+
+        <!-- <div class="abbey-divider" aria-hidden="true"></div> -->
+
+
+        <!-- ═══════════════════════════════════════
+             05 — SALA DE RELIQUIAS
+        ══════════════════════════════════════════ -->
+
+        <div class="abbey-space reveal" id="sala-reliquias">
+          <div class="abbey-space-header">
+            <span class="abbey-space-num" aria-hidden="true">05</span>
+            <div class="abbey-space-header-text">
+              <span class="tag" data-i18n="ab.s5.tag">Tesoro espiritual</span>
+              <h2 data-i18n="ab.s5.title">Sala de Reliquias</h2>
+            </div>
+          </div>
+          <div class="abbey-content-grid">
+            <div class="abbey-text-col">
+              <p data-i18n="ab.s5.p1">Las reliquias, consideradas vestigios de épocas pasadas, incluyen partes del
+                cuerpo de santos y objetos que han tocado a estos, y han sido objeto de veneración desde la Edad Media.
+              </p>
+              <p data-i18n="ab.s5.p2">A lo largo de la historia, la Iglesia ha valorado las reliquias por su capacidad
+                para transmitir virtud y atraer peregrinos. La colección del monasterio representa un patrimonio
+                espiritual de incalculable valor.</p>
+              <p data-i18n="ab.s5.p3">A lo largo de la historia, la Iglesia ha valorado las reliquias por su capacidad
+                para transmitir virtud y atraer peregrinos. La colección del monasterio representa un patrimonio
+                espiritual de incalculable valor.</p>
+            </div>
+            <div class="abbey-photos">
+              <!-- imagen 1 -->
+              <div class="abbey-photo abbey-photo-main" data-gallery="reliquias" data-index="0" role="button"
+                tabindex="0" aria-label="Ver galería Sala Reliquias">
+                <div class="abbey-photo-inner" style="padding:0;overflow:hidden;">
+                  <img src="assets/img/saladereliquias.webp" alt="Sala de las Reliquias"
+                    style="width:100%;height:100%;object-fit:cover;display:block;">
+                </div>
+                <span class="ab-zoom-hint" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor"
+                    stroke-width="1.8">
+                    <circle cx="11" cy="11" r="7" />
+                    <path d="m21 21-4.35-4.35" />
+                    <path d="M11 8v6M8 11h6" />
+                  </svg></span>
+              </div>
+              <!-- imagen 2 -->
+              <div class="abbey-photo" data-gallery="reliquias" data-index="1" role="button" tabindex="0"
+                aria-label="Ver imagen">
+                <div class="abbey-photo-inner" style="padding:0;overflow:hidden;">
+                  <img src="assets/img/expositor-reliquias.webp"
+                    alt="Cráneos de las Vírgenes y reliquia con su auténtica"
+                    style="width:100%;height:100%;object-fit:cover;display:block;">
+                </div>
+                <span class="ab-zoom-hint" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor"
+                    stroke-width="1.8">
+                    <circle cx="11" cy="11" r="7" />
+                    <path d="m21 21-4.35-4.35" />
+                    <path d="M11 8v6M8 11h6" />
+                  </svg></span>
+              </div>
+              <!-- imagen 3 -->
+              <div class="abbey-photo" data-gallery="reliquias" data-index="2" role="button" tabindex="0"
+                aria-label="Ver imagen">
+                <div class="abbey-photo-inner" style="padding:0;overflow:hidden;">
+                  <img src="assets/img/relicario.webp" alt="Relicario de la Sala de las Reliquias"
+                    style="width:100%;height:100%;object-fit:cover;display:block;">
+                </div>
+                <span class="ab-zoom-hint" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor"
+                    stroke-width="1.8">
+                    <circle cx="11" cy="11" r="7" />
+                    <path d="m21 21-4.35-4.35" />
+                    <path d="M11 8v6M8 11h6" />
+                  </svg></span>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- Extra imágenes para la "sala capitular" -->
+        <div data-gallery-extra="reliquias" style="display:none">
+          <div data-label="Arqueta relicario" data-src="assets/img/arqueta.webp">
+          </div>
+        </div>
+        <div data-gallery-extra="reliquias" style="display:none">
+          <div data-label="Herradura del caballo de Santiago Matamoros" data-src="assets/img/herradura-santiago.webp">
+          </div>
+        </div>
+        <div data-gallery-extra="reliquias" style="display:none">
+          <div data-label="Reliquia" data-src="assets/img/reliquia.webp">
+          </div>
+        </div>
+
+        <!-- <div class="abbey-divider" aria-hidden="true"></div> -->
+
+        <!-- ═══════════════════════════════════════
+             06 — CILLA-MUSEO
+        ══════════════════════════════════════════ -->
+
+        <div class="abbey-space reveal" id="cilla-museo">
+          <div class="abbey-space-header">
+            <span class="abbey-space-num" aria-hidden="true">06</span>
+            <div class="abbey-space-header-text">
+              <span class="tag" data-i18n="ab.s6.tag">Arte Sacro · Colecciones</span>
+              <h2 data-i18n="ab.s6.title">Cilla-Museo</h2>
+            </div>
+          </div>
+          <div class="abbey-content-grid">
+            <div class="abbey-text-col">
+              <p data-i18n="ab.s6.p1">La Cilla‑Museo alberga una destacada colección de piezas artísticas y objetos
+                litúrgicos que narran la historia del monasterio desde su fundación en el siglo XII hasta nuestros días.
+              </p>
+              <p data-i18n="ab.s6.p2">Entre las obras más destacadas se encuentran pinturas, esculturas, tejidos
+                litúrgicos y objetos de orfebrería que atestiguan la riqueza artística y espiritual acumulada a lo largo
+                de los siglos.</p>
+              <p data-i18n="ab.s6.p3">Entre las obras más destacadas se encuentran pinturas, esculturas, tejidos
+                litúrgicos y objetos de orfebrería que atestiguan la riqueza artística y espiritual acumulada a lo largo
+                de los siglos.</p>
+            </div>
+            <div class="abbey-photos">
+              <!-- imagen 1 -->
+              <div class="abbey-photo abbey-photo-main" data-gallery="cilla" data-index="0" role="button" tabindex="0"
+                aria-label="Ver galería Cilla-Museo">
+                <div class="abbey-photo-inner" style="padding:0;overflow:hidden;">
+                  <img src="assets/img/cilla-museo2.webp" alt="Galería de la Cilla-Museo"
+                    style="width:100%;height:100%;object-fit:cover;display:block;">
+                </div>
+                <span class="ab-zoom-hint" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor"
+                    stroke-width="1.8">
+                    <circle cx="11" cy="11" r="7" />
+                    <path d="m21 21-4.35-4.35" />
+                    <path d="M11 8v6M8 11h6" />
+                  </svg></span>
+              </div>
+              <!-- imagen 2 -->
+              <div class="abbey-photo" data-gallery="cilla" data-index="1" role="button" tabindex="0"
+                aria-label="Ver imagen">
+                <div class="abbey-photo-inner" style="padding:0;overflow:hidden;">
+                  <img src="assets/img/cilla-museo1.webp" alt="Galería de la Cilla-Museo"
+                    style="width:100%;height:100%;object-fit:cover;display:block;">
+                </div>
+                <span class="ab-zoom-hint" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor"
+                    stroke-width="1.8">
+                    <circle cx="11" cy="11" r="7" />
+                    <path d="m21 21-4.35-4.35" />
+                    <path d="M11 8v6M8 11h6" />
+                  </svg></span>
+              </div>
+              <!-- imagen 3 -->
+              <div class="abbey-photo" data-gallery="cilla" data-index="2" role="button" tabindex="0"
+                aria-label="Ver imagen">
+                <div class="abbey-photo-inner" style="padding:0;overflow:hidden;">
+                  <img src="assets/img/cilla-triptico.webp" alt="Tríptico expuesto en la Cilla-Museo"
+                    style="width:100%;height:100%;object-fit:cover;display:block;">
+                </div>
+                <span class="ab-zoom-hint" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor"
+                    stroke-width="1.8">
+                    <circle cx="11" cy="11" r="7" />
+                    <path d="m21 21-4.35-4.35" />
+                    <path d="M11 8v6M8 11h6" />
+                  </svg></span>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- Extra imágenes para la "sala capitular" -->
+        <div data-gallery-extra="cilla" style="display:none">
+          <div data-label="Virgen de Ayuela, pieza más antigua del Monasterio" data-src="assets/img/virgen-ayuela.webp">
+          </div>
+        </div>
+        <div data-gallery-extra="cilla" style="display:none">
+          <div data-label="Talla del Niño durmiendo" data-src="assets/img/cilla-tallaniño.webp">
+          </div>
+        </div>
+        <div data-gallery-extra="cilla" style="display:none">
+          <div data-label="Retablo de la Cilla-Museo" data-src="assets/img/cilla-retablo.webp">
+          </div>
+        </div>
+
+        <!-- <div class="abbey-divider" aria-hidden="true"></div> -->
+
+      </div><!-- /container -->
+    </section>
+
+    <!-- CTA final -->
+    <div class="section--alt" style="padding:4rem 0;text-align:center;">
+      <div class="container">
+        <span class="sec-over" style="display:block;margin-bottom:.75rem" data-i18n="ab.cta.over">¿Listo para
+          visitar?</span>
+        <h2 style="font-family:'Cormorant Garamond',serif;font-size:clamp(1.8rem,4vw,2.8rem);margin-bottom:1rem"
+          data-i18n="ab.cta.h2">Planifica tu visita</h2>
+        <p style="color:var(--c-muted);max-width:480px;margin:0 auto 2rem;font-size:.93rem" data-i18n="ab.cta.desc">
+          Consulta nuestras tarifas y horarios, o ponte en contacto con nosotros para organizar tu grupo.</p>
+        <div style="display:flex;gap:1rem;justify-content:center;flex-wrap:wrap;">
+          <a href="tarifas.html" class="btn btn-primary" data-i18n="ab.cta.btn1">Ver tarifas</a>
+          <a href="galeria.html" class="btn btn-outline" data-i18n="ab.cta.btn2">Ver galería</a>
+        </div>
+      </div>
+    </div>
+
+  </main>
+
+  <!-- ══════════════════════════════════════════
+       LIGHTBOX — único, compartido entre galerías
+       Cada galería es completamente independiente.
+  ══════════════════════════════════════════ -->
+  <div class="ab-lb" id="ab-lb" role="dialog" aria-modal="true" aria-label="Visor de imágenes" aria-hidden="true">
+
+    <button class="ab-lb-close" id="ab-lb-close" aria-label="Cerrar visor">✕</button>
+
+    <button class="ab-lb-prev" id="ab-lb-prev" aria-label="Imagen anterior">
+      <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2"
+        aria-hidden="true">
+        <polyline points="15 18 9 12 15 6" />
+      </svg>
+    </button>
+    <button class="ab-lb-next" id="ab-lb-next" aria-label="Imagen siguiente">
+      <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2"
+        aria-hidden="true">
+        <polyline points="9 18 15 12 9 6" />
+      </svg>
+    </button>
+
+    <div class="ab-lb-img-wrap">
+      <div class="ab-lb-img">
+        <div class="ab-lb-placeholder" id="ab-lb-placeholder">
+          <span class="ab-lb-label" id="ab-lb-label"></span>
+        </div>
+        <!--
+          Cuando tengas fotos reales, sustituye el placeholder por:
+          <img id="ab-lb-real-img" src="" alt=""
+               style="width:100%;height:100%;object-fit:cover;border-radius:8px">
+          Y en el JS actualiza la lógica de renderSlide() para cambiar el src.
+        -->
+      </div>
+      <div class="ab-lb-caption">
+        <span class="ab-lb-caption-text" id="ab-lb-caption"></span>
+        <span class="ab-lb-counter" id="ab-lb-counter"></span>
+      </div>
+      <div class="ab-lb-dots" id="ab-lb-dots"></div>
+    </div>
+
+  </div>
+
+  <div id="footer-placeholder"></div>
+  <script src="js/nav-footer.js"></script>
+  <script src="js/i18n.js"></script>
+  <script src="js/shared.js"></script>
+  <script src="js/cookies-banner.js"></script>
+
+  <script>
+    /* ════════════════════════════════════════════════════════════════
+       SISTEMA DE GALERÍAS INDEPENDIENTES POR SECCIÓN
+       ────────────────────────────────────────────────────────────────
+       Cada sección tiene su propio conjunto de imágenes.
+       Al hacer clic en cualquier miniatura se abre el lightbox
+       posicionado en esa imagen y las flechas navegan SÓLO dentro
+       de la galería de esa sección.
+  
+       Para añadir fotos reales:
+         1. Sube las imágenes a assets/img/abadia/<seccion>/foto-N.jpg
+         2. En cada .abbey-photo, añade data-src="ruta/a/foto.jpg"
+         3. En renderSlide(), descomenta las líneas de <img> y comenta
+            el bloque de placeholder.
+    ════════════════════════════════════════════════════════════════ */
+    (function () {
+      'use strict';
+
+      /* ── Construir datos de galería desde el DOM ── */
+      const GALLERIES = {};
+
+      // 1. Miniaturas visibles
+      document.querySelectorAll('.abbey-photo[data-gallery]').forEach(el => {
+        const id = el.dataset.gallery;
+        const idx = parseInt(el.dataset.index, 10);
+        if (!GALLERIES[id]) GALLERIES[id] = [];
+
+        const inner = el.querySelector('.abbey-photo-inner');
+        // Si hay un <img> real dentro, usamos su src y alt como label
+        const realImg = inner?.querySelector('img');
+        GALLERIES[id][idx] = {
+          label: realImg?.alt || inner?.querySelector('.abbey-photo-label')?.textContent?.trim() || '',
+          bg: inner?.style?.background || '#1a1510',
+          src: realImg?.src || el.dataset.src || null,
+        };
+      });
+
+      // 2. Imágenes extra ocultas
+      document.querySelectorAll('[data-gallery-extra]').forEach(container => {
+        const id = container.dataset.galleryExtra;
+        if (!GALLERIES[id]) GALLERIES[id] = [];
+        container.querySelectorAll('[data-label]').forEach(el => {
+          GALLERIES[id].push({
+            label: el.dataset.label || '',
+            bg: el.style?.background || '#1a1510',
+            src: el.dataset.src || null,
+          });
+        });
+      });
+
+      /* ── Referencias al DOM del lightbox ── */
+      const lb = document.getElementById('ab-lb');
+      const lbClose = document.getElementById('ab-lb-close');
+      const lbPrev = document.getElementById('ab-lb-prev');
+      const lbNext = document.getElementById('ab-lb-next');
+      const lbHolder = document.getElementById('ab-lb-placeholder');
+      const lbLabel = document.getElementById('ab-lb-label');
+      const lbCaption = document.getElementById('ab-lb-caption');
+      const lbCounter = document.getElementById('ab-lb-counter');
+      const lbDots = document.getElementById('ab-lb-dots');
+
+      let currentGallery = null;
+      let currentIndex = 0;
+
+      /* ── Renderizar diapositiva actual ── */
+      function renderSlide() {
+        const images = GALLERIES[currentGallery] || [];
+        const total = images.length;
+        const item = images[currentIndex] || {};
+
+        // Mostrar imagen real o placeholder según si hay src
+        if (item.src) {
+          lbHolder.style.background = '';
+          lbLabel.textContent = '';
+          // Reutilizar o crear el <img> del lightbox
+          let lbImg = lbHolder.querySelector('img.ab-lb-real');
+          if (!lbImg) {
+            lbImg = document.createElement('img');
+            lbImg.className = 'ab-lb-real';
+            lbImg.style.cssText = 'width:100%;height:100%;object-fit:contain;display:block;border-radius:8px;';
+            lbHolder.innerHTML = '';
+            lbHolder.appendChild(lbImg);
+          }
+          lbImg.src = item.src;
+          lbImg.alt = item.label || '';
+        } else {
+          // Sin imagen real: mostrar gradiente + texto
+          lbHolder.innerHTML = '<span class="ab-lb-label" id="ab-lb-label"></span>';
+          lbHolder.style.background = item.bg || '#1a1510';
+          lbHolder.querySelector('.ab-lb-label').textContent = item.label || '';
+        }
+
+        // Pie de foto y contador
+        lbCaption.textContent = item.label || '';
+        lbCounter.textContent = total > 1 ? `${currentIndex + 1} / ${total}` : '';
+
+        // Flechas — solo si hay más de 1 imagen
+        lbPrev.hidden = total <= 1;
+        lbNext.hidden = total <= 1;
+
+        // Puntos de navegación
+        lbDots.innerHTML = '';
+        if (total > 1) {
+          images.forEach((_, i) => {
+            const dot = document.createElement('button');
+            dot.className = 'ab-lb-dot' + (i === currentIndex ? ' active' : '');
+            dot.setAttribute('aria-label', `Ir a imagen ${i + 1}`);
+            dot.addEventListener('click', () => { currentIndex = i; renderSlide(); });
+            lbDots.appendChild(dot);
+          });
+        }
+      }
+
+      /* ── Abrir lightbox ── */
+      function openLightbox(galleryId, index) {
+        currentGallery = galleryId;
+        currentIndex = index;
+        renderSlide();
+        lb.classList.add('open');
+        lb.setAttribute('aria-hidden', 'false');
+        document.body.style.overflow = 'hidden';
+        lbClose.focus();
+      }
+
+      /* ── Cerrar lightbox ── */
+      function closeLightbox() {
+        lb.classList.remove('open');
+        lb.setAttribute('aria-hidden', 'true');
+        document.body.style.overflow = '';
+      }
+
+      /* ── Navegar entre imágenes de la misma galería ── */
+      function navigate(dir) {
+        const total = (GALLERIES[currentGallery] || []).length;
+        if (total <= 1) return;
+        currentIndex = (currentIndex + dir + total) % total;
+        renderSlide();
+      }
+
+      /* ── Conectar miniaturas ── */
+      document.querySelectorAll('.abbey-photo[data-gallery]').forEach(el => {
+        el.addEventListener('click', () => {
+          openLightbox(el.dataset.gallery, parseInt(el.dataset.index, 10));
+        });
+        el.addEventListener('keydown', e => {
+          if (e.key === 'Enter' || e.key === ' ') { e.preventDefault(); el.click(); }
+        });
+      });
+
+      /* ── Botones del lightbox ── */
+      lbClose.addEventListener('click', closeLightbox);
+      lbPrev.addEventListener('click', () => navigate(-1));
+      lbNext.addEventListener('click', () => navigate(+1));
+
+      // Clic en el fondo oscuro → cerrar
+      lb.addEventListener('click', e => { if (e.target === lb) closeLightbox(); });
+
+      // Teclado
+      document.addEventListener('keydown', e => {
+        if (!lb.classList.contains('open')) return;
+        if (e.key === 'Escape') closeLightbox();
+        if (e.key === 'ArrowLeft') navigate(-1);
+        if (e.key === 'ArrowRight') navigate(+1);
+      });
+
+    })();
+  </script>
+
+</body>
+
+</html>

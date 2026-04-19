@@ -1,0 +1,239 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Folleto‑Guía · Monasterio de Cañas</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link
+    href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,600;1,300;1,400&family=Jost:wght@300;400;500&display=swap"
+    rel="stylesheet">
+  <style>
+    *,
+    *::before,
+    *::after {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+    }
+
+    :root {
+      --stone: #16120e;
+      --gold: #c4a464;
+      --white: #faf8f3;
+      --muted: rgba(250, 248, 243, .45);
+      --ff-d: 'Cormorant Garamond', Georgia, serif;
+      --ff-b: 'Jost', sans-serif;
+    }
+
+    html,
+    body {
+      height: 100%;
+      background: var(--stone);
+      color: var(--white);
+      font-family: var(--ff-b);
+      font-weight: 300;
+    }
+
+    body {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      min-height: 100dvh;
+      padding: 2rem 1.5rem;
+    }
+
+    body::before {
+      content: '';
+      position: fixed;
+      inset: 0;
+      background: radial-gradient(ellipse at 50% 0%, rgba(196, 164, 100, .08) 0%, transparent 65%);
+      pointer-events: none;
+    }
+
+    /* Back */
+    .back {
+      position: fixed;
+      top: 1.4rem;
+      left: 1.4rem;
+      display: flex;
+      align-items: center;
+      gap: .4rem;
+      font-size: .65rem;
+      font-weight: 400;
+      letter-spacing: .12em;
+      text-transform: uppercase;
+      color: rgba(196, 164, 100, .55);
+      text-decoration: none;
+      transition: color .2s;
+      z-index: 10;
+    }
+
+    .back:hover {
+      color: var(--gold);
+    }
+
+    .logo {
+      text-align: center;
+      margin-bottom: 3rem;
+    }
+
+    .logo-l1 {
+      font-family: var(--ff-d);
+      font-size: 1.3rem;
+      font-weight: 400;
+      color: var(--white);
+      letter-spacing: .04em;
+      display: block;
+    }
+
+    .logo-l2 {
+      font-size: .6rem;
+      font-weight: 400;
+      letter-spacing: .28em;
+      text-transform: uppercase;
+      color: var(--gold);
+      display: block;
+      margin-top: .15rem;
+    }
+
+    .logo-line {
+      width: 30px;
+      height: 1px;
+      background: rgba(196, 164, 100, .4);
+      margin: 1rem auto 0;
+    }
+
+    .over {
+      font-size: .62rem;
+      font-weight: 500;
+      letter-spacing: .22em;
+      text-transform: uppercase;
+      color: var(--gold);
+      text-align: center;
+      margin-bottom: .9rem;
+      display: block;
+    }
+
+    .headline {
+      font-family: var(--ff-d);
+      font-size: clamp(1.5rem, 5vw, 2rem);
+      font-weight: 300;
+      text-align: center;
+      margin-bottom: .6rem;
+    }
+
+    .subline {
+      font-size: .82rem;
+      color: var(--muted);
+      text-align: center;
+      margin-bottom: 2.8rem;
+      font-style: italic;
+      font-family: var(--ff-d);
+    }
+
+    /* Language grid */
+    .lang-grid {
+      display: flex;
+      gap: 1.2rem;
+      justify-content: center;
+      flex-wrap: wrap;
+      max-width: 420px;
+      width: 100%;
+    }
+
+    .lang-btn {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      gap: .9rem;
+      padding: 1.8rem 2.4rem;
+      border: 1px solid rgba(196, 164, 100, .18);
+      background: rgba(196, 164, 100, .04);
+      text-decoration: none;
+      color: var(--white);
+      cursor: pointer;
+      transition: border-color .25s, background .25s, transform .25s;
+      -webkit-tap-highlight-color: transparent;
+      min-width: 140px;
+    }
+
+    .lang-btn:hover,
+    .lang-btn:focus-visible {
+      border-color: rgba(196, 164, 100, .5);
+      background: rgba(196, 164, 100, .08);
+      transform: translateY(-2px);
+    }
+
+    .lang-flag {
+      font-size: 2.4rem;
+      line-height: 1;
+    }
+
+    .lang-name {
+      font-size: .68rem;
+      font-weight: 500;
+      letter-spacing: .18em;
+      text-transform: uppercase;
+      color: var(--gold);
+    }
+
+    .lang-native {
+      font-family: var(--ff-d);
+      font-size: .95rem;
+      font-weight: 300;
+      color: var(--muted);
+      font-style: italic;
+    }
+
+    .foot {
+      margin-top: 3rem;
+      font-size: .65rem;
+      color: rgba(196, 164, 100, .3);
+      letter-spacing: .08em;
+      text-align: center;
+    }
+  </style>
+</head>
+
+<body>
+
+  <a href="menu-audioguia.html" class="back" aria-label="Volver al menú">
+    <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"
+      aria-hidden="true">
+      <polyline points="15 18 9 12 15 6" />
+    </svg>
+    Volver
+  </a>
+
+  <div class="logo">
+    <span class="logo-l1">Monasterio de la Luz</span>
+    <span class="logo-l2">Cañas · La Rioja</span>
+    <div class="logo-line"></div>
+  </div>
+
+  <span class="over">Folleto‑Guía</span>
+  <h1 class="headline">Elige tu idioma</h1>
+  <p class="subline">Choose your language</p>
+
+  <div class="lang-grid">
+    <a href="/assets/folleto/folleto-espanol.pdf" target="_blank" class="lang-btn" aria-label="Español">
+      <span class="lang-flag" aria-hidden="true">🇪🇸</span>
+      <span class="lang-name">ES</span>
+      <span class="lang-native">Español</span>
+    </a>
+    <a href="/assets/folleto/folleto-ingles.pdf" target="_blank" class="lang-btn" aria-label="English">
+      <span class="lang-flag" aria-hidden="true">🇬🇧</span>
+      <span class="lang-name">EN</span>
+      <span class="lang-native">English</span>
+    </a>
+  </div>
+
+  <p class="foot">Monasterio de Santa María de San Salvador de Cañas</p>
+
+</body>
+
+</html>
