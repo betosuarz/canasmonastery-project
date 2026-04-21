@@ -258,37 +258,45 @@
   }
   `;
 
-  /* ─── HTML ─── */
-  const HTML = `
+
+  /* ─── Mini-traducciones usando i18n si está disponible ─── */
+  function tr(key) {
+    if (window.i18n && window.i18n.t) {
+      const v = window.i18n.t(key);
+      if (v) return v;
+    }
+    return key;
+  }
+
+  function buildHTML() {
+    return `
   <div id="ck-overlay" role="presentation" aria-hidden="true"></div>
-  <div id="ck-banner" role="dialog" aria-modal="false" aria-label="Preferencias de cookies" aria-live="polite">
+  <div id="ck-banner" role="dialog" aria-modal="false" aria-label="${tr('ck.banner.aria')}" aria-live="polite">
     <div class="ck-inner">
       <div class="ck-text">
-        <span class="ck-label">Cookies</span>
-        <p class="ck-desc">
-          Usamos cookies propias necesarias para el funcionamiento del sitio y, con tu consentimiento, cookies analíticas para mejorar la experiencia. Puedes aceptarlas todas, rechazar las opcionales o personalizar tu elección. Más información en nuestra <a href="cookies.html">Política de Cookies</a>.
-        </p>
+        <span class="ck-label">${tr('ck.label')}</span>
+        <p class="ck-desc">${tr('ck.desc')}</p>
       </div>
       <div class="ck-actions">
-        <button class="ck-btn ck-btn--settings" id="ck-btn-settings" aria-expanded="false" aria-controls="ck-panel">Personalizar</button>
-        <button class="ck-btn ck-btn--reject"   id="ck-btn-reject">Solo necesarias</button>
-        <button class="ck-btn ck-btn--accept"   id="ck-btn-accept">Aceptar todas</button>
+        <button class="ck-btn ck-btn--settings" id="ck-btn-settings" aria-expanded="false" aria-controls="ck-panel">${tr('ck.btn.settings')}</button>
+        <button class="ck-btn ck-btn--reject"   id="ck-btn-reject">${tr('ck.btn.reject')}</button>
+        <button class="ck-btn ck-btn--accept"   id="ck-btn-accept">${tr('ck.btn.accept')}</button>
       </div>
     </div>
 
-    <div id="ck-panel" role="region" aria-label="Configuración detallada de cookies">
+    <div id="ck-panel" role="region" aria-label="${tr('ck.panel.aria')}">
       <hr class="ck-panel-divider">
-      <p class="ck-panel-title">Gestión detallada de cookies</p>
+      <p class="ck-panel-title">${tr('ck.panel.title')}</p>
 
       <div class="ck-category">
         <div class="ck-cat-info">
           <p class="ck-cat-name">
-            Cookies necesarias
-            <span class="ck-required-tag">Siempre activas</span>
+            ${tr('ck.nec.name')}
+            <span class="ck-required-tag">${tr('ck.nec.always')}</span>
           </p>
-          <p class="ck-cat-desc">Imprescindibles para el funcionamiento básico del sitio. Guardan tu preferencia de idioma (<code>lang_pref</code>) y si ya has respondido a este aviso (<code>cookie_consent</code>). No requieren consentimiento.</p>
+          <p class="ck-cat-desc">${tr('ck.nec.desc')}</p>
         </div>
-        <label class="ck-toggle" aria-label="Cookies necesarias (siempre activas)">
+        <label class="ck-toggle" aria-label="${tr('ck.nec.aria')}">
           <input type="checkbox" id="ck-toggle-necessary" checked disabled>
           <span class="ck-toggle-track"></span>
           <span class="ck-toggle-thumb"></span>
@@ -297,10 +305,10 @@
 
       <div class="ck-category">
         <div class="ck-cat-info">
-          <p class="ck-cat-name">Cookies analíticas</p>
-          <p class="ck-cat-desc">Nos permiten medir el tráfico y el comportamiento de los visitantes de forma anonimizada (Google Analytics: <code>_ga</code>, <code>_ga_*</code>). Solo se instalan con tu consentimiento expreso.</p>
+          <p class="ck-cat-name">${tr('ck.ana.name')}</p>
+          <p class="ck-cat-desc">${tr('ck.ana.desc')}</p>
         </div>
-        <label class="ck-toggle" aria-label="Activar cookies analíticas">
+        <label class="ck-toggle" aria-label="${tr('ck.ana.aria')}">
           <input type="checkbox" id="ck-toggle-analytics">
           <span class="ck-toggle-track"></span>
           <span class="ck-toggle-thumb"></span>
@@ -308,11 +316,12 @@
       </div>
 
       <div class="ck-panel-actions">
-        <button class="ck-btn ck-btn--reject" id="ck-btn-reject-panel">Rechazar opcionales</button>
-        <button class="ck-btn ck-btn--accept" id="ck-btn-save">Guardar preferencias</button>
+        <button class="ck-btn ck-btn--reject" id="ck-btn-reject-panel">${tr('ck.btn.reject.panel')}</button>
+        <button class="ck-btn ck-btn--accept" id="ck-btn-save">${tr('ck.btn.save')}</button>
       </div>
     </div>
   </div>`;
+  }
 
   /* ─── Init ─── */
   function init() {
@@ -330,7 +339,7 @@
 
     // Inyectar HTML
     const wrap = document.createElement('div');
-    wrap.innerHTML = HTML;
+    wrap.innerHTML = buildHTML();
     document.body.appendChild(wrap);
 
     const banner  = document.getElementById('ck-banner');

@@ -17,8 +17,16 @@
       </a>
 
       <div class="nav-right">
-        <button class="lang-toggle" aria-label="Switch to English" title="Switch language" data-lang="es">EN</button>
-        <button class="nav-burger" id="nav-burger" aria-expanded="false" aria-controls="nav-list" aria-label="Abrir menú">
+        <div class="lang-selector" aria-label="Language / Idioma">
+          <button class="lang-current" aria-haspopup="listbox" aria-expanded="false">ES</button>
+          <ul class="lang-dropdown" role="listbox">
+            <li><button class="lang-opt" data-lang="es" role="option" aria-selected="true">ES &mdash; Español</button></li>
+            <li><button class="lang-opt" data-lang="en" role="option" aria-selected="false">EN &mdash; English</button></li>
+            <li><button class="lang-opt" data-lang="fr" role="option" aria-selected="false">FR &mdash; Français</button></li>
+            <li><button class="lang-opt" data-lang="de" role="option" aria-selected="false">DE &mdash; Deutsch</button></li>
+          </ul>
+        </div>
+        <button class="nav-burger" id="nav-burger" aria-expanded="false" aria-controls="nav-list" data-i18n-aria="nav.aria.burger" aria-label="Abrir menú">
           <span></span><span></span><span></span>
         </button>
       </div>
@@ -40,7 +48,7 @@
       <div class="ft-brand">
         <p class="ft-brand-name">Monasterio de la Luz</p>
         <p class="ft-brand-sub">Monasterio de Santa María de San Salvador de Cañas</p>
-        <p class="ft-brand-addr">Carretera 12 · 26325 Cañas, La Rioja, España</p>
+        <p class="ft-brand-addr" data-i18n="ft.brand.addr">Carretera 12 · 26325 Cañas, La Rioja, España</p>
       </div>
       <div class="ft-col">
         <p class="ft-col-title" data-i18n="ft.pages">Páginas</p>
@@ -68,7 +76,7 @@
           <li><a href="tel:+34941379145">(+34) 941 37 91 45</a></li>
           <li><a href="mailto:entradas@monasteriodecanas.org">entradas@monasteriodecanas.org</a></li>
         </ul>
-        <p class="ft-col-title" style="margin-top:1.25rem">Social</p>
+        <p class="ft-col-title" style="margin-top:1.25rem" data-i18n="ft.social">Social</p>
       <div class="ft-social">
         <a href="https://www.instagram.com/monasteriocanas/" target="_blank" rel="noopener noreferrer" class="ft-soc-a" aria-label="Instagram">
           <svg width="17" height="17" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" aria-hidden="true">
@@ -87,7 +95,15 @@
         </a>
       </div>
         <div style="margin-top:1.5rem">
-          <button class="lang-toggle lang-toggle--footer" aria-label="Switch to English" title="Switch language" data-lang="es">EN</button>
+          <div class="lang-selector lang-selector--footer" aria-label="Language / Idioma">
+            <button class="lang-current" aria-haspopup="listbox" aria-expanded="false">ES</button>
+            <ul class="lang-dropdown" role="listbox">
+              <li><button class="lang-opt" data-lang="es" role="option" aria-selected="true">ES &mdash; Español</button></li>
+              <li><button class="lang-opt" data-lang="en" role="option" aria-selected="false">EN &mdash; English</button></li>
+              <li><button class="lang-opt" data-lang="fr" role="option" aria-selected="false">FR &mdash; Français</button></li>
+              <li><button class="lang-opt" data-lang="de" role="option" aria-selected="false">DE &mdash; Deutsch</button></li>
+            </ul>
+          </div>
         </div>
       </div>
     </div>
@@ -95,7 +111,7 @@
       <span data-i18n="ft.copy">© 2026 Monasterio de Santa María de San Salvador de Cañas · Todos los derechos reservados</span>
     </div>
   </footer>
-  <button class="btt" id="btt" aria-label="Volver al inicio" hidden>
+  <button class="btt" id="btt" aria-label="Back to top" hidden>
     <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" aria-hidden="true"><polyline points="18 15 12 9 6 15"/></svg>
   </button>`;
 

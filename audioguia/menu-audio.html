@@ -211,12 +211,12 @@
 
 <body>
 
-  <a href="menu-audioguia.html" class="back" aria-label="Volver al menú">
+  <a href="menu-audioguia.html" class="back" data-i18n-aria="ag.back">
     <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"
       aria-hidden="true">
       <polyline points="15 18 9 12 15 6" />
     </svg>
-    Volver
+    <span data-i18n="ag.back">Volver</span>
   </a>
 
   <div class="logo">
@@ -225,9 +225,9 @@
     <div class="logo-line"></div>
   </div>
 
-  <span class="over">Audioguía</span>
-  <h1 class="headline">Elige tu idioma</h1>
-  <p class="subline">Choose your language</p>
+  <span class="over" data-i18n="ag.audio.title">Audioguía</span>
+  <h1 class="headline" data-i18n="ag.chooselang">Elige tu idioma</h1>
+  <p class="subline">ES · EN · FR · DE · IT · PT · KO</p>
 
   <div class="lang-grid">
     <a href="qr-playlist.html?lang=es" class="lang-btn" aria-label="Español">
@@ -269,6 +269,7 @@
 
   <p class="foot">Monasterio de Santa María de San Salvador de Cañas</p>
 
+  <script src="../js/i18n.js"></script>
 </body>
 
 </html>
