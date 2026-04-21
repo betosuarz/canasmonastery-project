@@ -24,6 +24,11 @@
             <li><button class="lang-opt" data-lang="en" role="option" aria-selected="false">EN &mdash; English</button></li>
             <li><button class="lang-opt" data-lang="fr" role="option" aria-selected="false">FR &mdash; Français</button></li>
             <li><button class="lang-opt" data-lang="de" role="option" aria-selected="false">DE &mdash; Deutsch</button></li>
+            <li><button class="lang-opt" data-lang="it" role="option" aria-selected="false">IT &mdash; Italiano</button></li>
+            <li><button class="lang-opt" data-lang="pt" role="option" aria-selected="false">PT &mdash; Português</button></li>
+            <li><button class="lang-opt" data-lang="eu" role="option" aria-selected="false">EU &mdash; Euskera</button></li>
+            <li><button class="lang-opt" data-lang="ca" role="option" aria-selected="false">CA &mdash; Català</button></li>
+            <li><button class="lang-opt" data-lang="ko" role="option" aria-selected="false">KO &mdash; 한국어</button></li>
           </ul>
         </div>
         <button class="nav-burger" id="nav-burger" aria-expanded="false" aria-controls="nav-list" data-i18n-aria="nav.aria.burger" aria-label="Abrir menú">
@@ -102,6 +107,11 @@
               <li><button class="lang-opt" data-lang="en" role="option" aria-selected="false">EN &mdash; English</button></li>
               <li><button class="lang-opt" data-lang="fr" role="option" aria-selected="false">FR &mdash; Français</button></li>
               <li><button class="lang-opt" data-lang="de" role="option" aria-selected="false">DE &mdash; Deutsch</button></li>
+              <li><button class="lang-opt" data-lang="it" role="option" aria-selected="false">IT &mdash; Italiano</button></li>
+              <li><button class="lang-opt" data-lang="pt" role="option" aria-selected="false">PT &mdash; Português</button></li>
+              <li><button class="lang-opt" data-lang="eu" role="option" aria-selected="false">EU &mdash; Euskera</button></li>
+              <li><button class="lang-opt" data-lang="ca" role="option" aria-selected="false">CA &mdash; Català</button></li>
+              <li><button class="lang-opt" data-lang="ko" role="option" aria-selected="false">KO &mdash; 한국어</button></li>
             </ul>
           </div>
         </div>
