@@ -1,0 +1,12 @@
+# Media pesada — alojada externamente
+assets/audio/
+assets/img/
+assets/folleto/
+
+# Claude Code (interno)
+.claude/worktrees/
+
+# Sistema
+.DS_Store
+Thumbs.db
+desktop.ini
