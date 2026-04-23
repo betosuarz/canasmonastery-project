@@ -1,7 +1,7 @@
 /**
  * MONASTERIO DE LA LUZ · nav-footer.js
  * Inyecta nav y footer idénticos en todas las páginas.
- * Incluye botón de cambio de idioma ES / EN.
+ * Incluye selector de idioma: ES / EN / FR / DE / IT / PT / EU / CA / KO.
  */
 (function () {
 
