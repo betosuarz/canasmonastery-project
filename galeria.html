@@ -177,23 +177,21 @@
 
         <!-- Desplegable móvil (solo visible en móvil) -->
         <div class="gallery-filter-mobile reveal" aria-label="Filtrar galería">
-          <p class="gf-dropdown-subtitle">Selecciona la categoría</p>
+          <p class="gf-dropdown-subtitle" data-i18n="gal.select">Selecciona la categoría</p>
           <button class="gf-dropdown-trigger" id="gf-dropdown-trigger" aria-haspopup="listbox" aria-expanded="false">
-            <span class="gf-dropdown-label" id="gf-dropdown-label">Todos los espacios</span>
+            <span class="gf-dropdown-label" id="gf-dropdown-label" data-i18n="gal.all">Todos los espacios</span>
             <svg class="gf-dropdown-arrow" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor"
               stroke-width="1.8" aria-hidden="true">
               <polyline points="6 9 12 15 18 9" />
             </svg>
           </button>
           <ul class="gf-dropdown-menu" id="gf-dropdown-menu" role="listbox" aria-label="Categorías">
-            <li class="gf-dropdown-item active" role="option" aria-selected="true" data-filter="all">Todos los espacios
-            </li>
-            <li class="gf-dropdown-item" role="option" aria-selected="false" data-filter="iglesia">La Iglesia</li>
-            <li class="gf-dropdown-item" role="option" aria-selected="false" data-filter="claustro">El Claustro</li>
-            <li class="gf-dropdown-item" role="option" aria-selected="false" data-filter="capitular">Sala Capitular</li>
-            <li class="gf-dropdown-item" role="option" aria-selected="false" data-filter="reliquias">Sala de Reliquias
-            </li>
-            <li class="gf-dropdown-item" role="option" aria-selected="false" data-filter="cilla">Cilla‑Museo</li>
+            <li class="gf-dropdown-item active" role="option" aria-selected="true" data-filter="all" data-i18n="gal.all">Todos los espacios</li>
+            <li class="gf-dropdown-item" role="option" aria-selected="false" data-filter="iglesia" data-i18n="gal.church">La Iglesia</li>
+            <li class="gf-dropdown-item" role="option" aria-selected="false" data-filter="claustro" data-i18n="gal.cloister">El Claustro</li>
+            <li class="gf-dropdown-item" role="option" aria-selected="false" data-filter="capitular" data-i18n="gal.chapter">Sala Capitular</li>
+            <li class="gf-dropdown-item" role="option" aria-selected="false" data-filter="reliquias" data-i18n="gal.relics">Sala de Reliquias</li>
+            <li class="gf-dropdown-item" role="option" aria-selected="false" data-filter="cilla" data-i18n="gal.cilla">Cilla‑Museo</li>
           </ul>
         </div>
 
@@ -632,7 +630,14 @@
         const f = item.dataset.filter;
         dropItems.forEach(i => { i.classList.remove('active'); i.setAttribute('aria-selected', 'false'); });
         item.classList.add('active'); item.setAttribute('aria-selected', 'true');
-        dropLabel.textContent = item.textContent;
+        const key = item.dataset.i18n;
+        if (key) {
+          dropLabel.dataset.i18n = key;
+          if (window.i18n && window.i18n.t) dropLabel.textContent = window.i18n.t(key);
+          else dropLabel.textContent = item.textContent.trim();
+        } else {
+          dropLabel.textContent = item.textContent.trim();
+        }
         menu.classList.remove('open');
         trigger.setAttribute('aria-expanded', 'false');
         galSections.forEach(s => { s.style.display = (f === 'all' || s.dataset.section === f) ? '' : 'none'; });

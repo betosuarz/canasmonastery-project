@@ -695,6 +695,9 @@
     'tr.reduced':    { es: 'Tarifa Reducida',            en: 'Reduced Rate',               fr: 'Tarif réduit',               de: 'Ermäßigter Tarif',            it: 'Tariffa ridotta',            pt: 'Tarifa reduzida',            eu: 'Tarifa murriztua',           ca: 'Tarifa reduïda',             ko: '할인 요금' },
     'tr.free':       { es: 'Menores de 6 años',          en: 'Under 6 years',              fr: 'Moins de 6 ans',             de: 'Unter 6 Jahren',              it: 'Bambini sotto i 6 anni',     pt: 'Menores de 6 anos',          eu: '6 urte azpikoak',            ca: 'Menors de 6 anys',           ko: '6세 미만' },
     'tr.free.acc':   { es: 'gratuito',                   en: 'free',                       fr: 'gratuit',                    de: 'kostenlos',                   it: 'gratuito',                   pt: 'gratuito',                   eu: 'doan',                       ca: 'gratuït',                    ko: '무료' },
+    'tr.unit.person': { es: '/ persona', en: '/ person', fr: '/ personne', de: '/ Person', it: '/ persona', pt: '/ pessoa', eu: '/ pertsona', ca: '/ persona', ko: '/ 1인' },
+    'tr.unit.group':  { es: '/ grupo',   en: '/ group',  fr: '/ groupe',   de: '/ Gruppe', it: '/ gruppo',  pt: '/ grupo',  eu: '/ talde',    ca: '/ grup',    ko: '/ 그룹' },
+    'tr.unit.supp':   { es: 'suplemento al precio de grupo', en: 'supplement to group price', fr: 'supplément au prix du groupe', de: 'Aufschlag auf den Gruppenpreis', it: 'supplemento al prezzo di gruppo', pt: 'suplemento ao preço de grupo', eu: 'taldeko prezioaren gehigarria', ca: 'suplement al preu de grup', ko: '그룹 가격 추가 요금' },
     'tr.free.inc1':  { es: 'Acceso libre',               en: 'Free access',                fr: 'Accès libre',                de: 'Freier Eintritt',             it: 'Accesso libero',             pt: 'Acesso livre',               eu: 'Sarrera askea',              ca: 'Accés lliure',               ko: '무료 입장' },
     'tr.free.inc2':  { es: 'Acompañado de adulto',       en: 'Accompanied by adult',       fr: 'Accompagné d\'un adulte',    de: 'In Begleitung eines Erwachsenen', it: 'Accompagnato da adulto',    pt: 'Acompanhado de adulto',      eu: 'Heldu batekin lagunduta',    ca: 'Acompanyat d\'adult',        ko: '성인 동반' },
     'tr.adult.note': { es: '', en: '', fr: '', de: '', it: '', pt: '', eu: '', ca: '', ko: '' },
@@ -1007,6 +1010,7 @@
     'cap.a26': { es: 'Tríptico expuesto en la Cilla-Museo', en: 'Triptych on display in the Cilla-Museum', fr: 'Triptyque exposé dans la Cilla-Musée', de: 'Im Cilla-Museum ausgestelltes Triptychon', it: 'Trittico esposto nella Cilla-Museo', pt: 'Tríptico exposto na Cilla-Museu', eu: 'Cilla-Museoan erakusgai dagoen triptikoa', ca: 'Tríptic exposat a la Cilla-Museu', ko: '시야-박물관에 전시된 삼폭화' },
 
     /* ---- GALERÍA ---- */
+    'gal.select':  { es: 'Selecciona la categoría', en: 'Select category', fr: 'Choisir une catégorie', de: 'Kategorie auswählen', it: 'Seleziona la categoria', pt: 'Selecionar categoria', eu: 'Hautatu kategoria', ca: 'Selecciona la categoria', ko: '카테고리 선택' },
     'gal.all':     { es: 'Todos los espacios', en: 'All spaces',    fr: 'Tous les espaces',    de: 'Alle Räume',          it: 'Tutti gli spazi',     pt: 'Todos os espaços',    eu: 'Espazio guztiak',     ca: 'Tots els espais',     ko: '모든 공간' },
     'gal.church':  { es: 'La Iglesia',         en: 'The Church',    fr: 'L\'Église',           de: 'Die Kirche',          it: 'La Chiesa',           pt: 'A Igreja',            eu: 'Eliza',               ca: 'L\'Església',         ko: '성당' },
     'gal.cloister':{ es: 'El Claustro',        en: 'The Cloister',  fr: 'Le Cloître',          de: 'Der Kreuzgang',       it: 'Il Chiostro',         pt: 'O Claustro',          eu: 'Klaustroa',           ca: 'El Claustre',         ko: '회랑' },
@@ -1330,6 +1334,18 @@
     document.querySelectorAll('[data-i18n-alt]').forEach(el => {
       const v = t(el.dataset.i18nAlt);
       if (v !== '') el.alt = v;
+    });
+
+    // <time> elements: format datetime attribute according to current language
+    const localeMap = { es:'es-ES', en:'en-GB', fr:'fr-FR', de:'de-DE', it:'it-IT', pt:'pt-PT', eu:'eu-ES', ca:'ca-ES', ko:'ko-KR' };
+    const dateLocale = localeMap[lang] || 'es-ES';
+    const dateFmt = new Intl.DateTimeFormat(dateLocale, { day: 'numeric', month: 'short', year: 'numeric' });
+    document.querySelectorAll('time[datetime]').forEach(el => {
+      const iso = el.getAttribute('datetime');
+      if (!iso) return;
+      const d = new Date(iso);
+      if (isNaN(d.getTime())) return;
+      el.textContent = dateFmt.format(d);
     });
 
     // Lang dropdown: update current-language button text and aria-selected on options
