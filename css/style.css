@@ -1309,7 +1309,7 @@ p {
    ================================================================ */
 .news-grid {
   display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+  grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
   gap: 2rem
 }
 
@@ -1422,6 +1422,26 @@ p {
   background: var(--c-parch);
   border-radius: 999px;
   border: 1px solid var(--c-border)
+}
+
+.news-date {
+  display: block;
+  font-size: .68rem;
+  letter-spacing: .12em;
+  text-transform: uppercase;
+  color: var(--c-muted);
+  margin: .15rem 0 .3rem
+}
+
+.news-card-link {
+  display: block;
+  color: inherit;
+  text-decoration: none
+}
+
+.news-card-link:hover .news-link {
+  color: var(--c-gold);
+  gap: .7rem
 }
 
 /* ================================================================
@@ -2017,12 +2037,24 @@ p {
   }
 
   .gallery-grid {
-    grid-template-columns: repeat(2, 1fr)
+    display: flex;
+    grid-template-columns: none;
+    overflow-x: auto;
+    scroll-snap-type: x mandatory;
+    -webkit-overflow-scrolling: touch;
+    gap: .75rem;
+    padding-bottom: .5rem;
+    margin-right: -1.5rem;
+    padding-right: 1.5rem;
+    scrollbar-width: thin
   }
 
-  .gal-item:nth-child(3n+1) {
-    grid-column: span 1;
-    aspect-ratio: 4/3
+  .gallery-grid > .gal-item,
+  .gallery-grid > .gal-item:nth-child(3n+1) {
+    flex: 0 0 82%;
+    grid-column: auto;
+    aspect-ratio: 4/3;
+    scroll-snap-align: start
   }
 
   .footer-main {
@@ -2032,6 +2064,64 @@ p {
 
   .contact-map {
     height: 200px
+  }
+
+  /* Noticias — scroll horizontal en móvil */
+  .news-grid {
+    display: flex;
+    grid-template-columns: none;
+    overflow-x: auto;
+    scroll-snap-type: x mandatory;
+    -webkit-overflow-scrolling: touch;
+    gap: 1rem;
+    padding-bottom: .5rem;
+    margin-right: -1.5rem;
+    padding-right: 1.5rem;
+    scrollbar-width: thin
+  }
+
+  .news-grid > .news-card {
+    flex: 0 0 82%;
+    scroll-snap-align: start
+  }
+
+  /* Inicio — "¿Por qué visitarnos?" scroll horizontal en móvil */
+  .why-grid {
+    display: flex;
+    grid-template-columns: none;
+    overflow-x: auto;
+    scroll-snap-type: x mandatory;
+    -webkit-overflow-scrolling: touch;
+    gap: 1rem;
+    padding-bottom: .5rem;
+    margin-right: -1.5rem;
+    padding-right: 1.5rem;
+    scrollbar-width: thin
+  }
+
+  .why-grid > .why-card {
+    flex: 0 0 82%;
+    scroll-snap-align: start
+  }
+
+  /* Tarifas — scroll horizontal en móvil */
+  .rates-cards {
+    display: flex;
+    grid-template-columns: none;
+    overflow-x: auto;
+    scroll-snap-type: x mandatory;
+    -webkit-overflow-scrolling: touch;
+    gap: 1rem;
+    padding-top: .9rem;
+    padding-bottom: .5rem;
+    margin-right: -1.5rem;
+    padding-right: 1.5rem;
+    scrollbar-width: thin
+  }
+
+  .rates-cards > .rate-card {
+    flex: 0 0 82%;
+    scroll-snap-align: start
   }
 }
 
