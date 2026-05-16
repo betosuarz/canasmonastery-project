@@ -1,38 +1,75 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
+<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9"
+        xmlns:xhtml="http://www.w3.org/1999/xhtml"
+        xmlns:image="http://www.google.com/schemas/sitemap-image/0.9">
 
   <url>
     <loc>https://monasteriodecanas.org/</loc>
+    <lastmod>2026-05-16</lastmod>
     <priority>1.0</priority>
     <changefreq>monthly</changefreq>
+    <image:image>
+      <image:loc>https://monasteriodecanas.org/assets/img/monasterio-exterior.webp</image:loc>
+      <image:title>Monasterio de Cañas — Exterior</image:title>
+      <image:caption>Vista exterior del Monasterio Cisterciense de Santa María de San Salvador de Cañas, La Rioja.</image:caption>
+    </image:image>
+    <image:image>
+      <image:loc>https://monasteriodecanas.org/assets/img/claustro-patio.webp</image:loc>
+      <image:title>Claustro del Monasterio de Cañas</image:title>
+    </image:image>
   </url>
 
   <url>
     <loc>https://monasteriodecanas.org/abadia.html</loc>
+    <lastmod>2026-05-16</lastmod>
     <priority>0.9</priority>
     <changefreq>monthly</changefreq>
+    <image:image>
+      <image:loc>https://monasteriodecanas.org/assets/img/abside-iglesia.webp</image:loc>
+      <image:title>Ábside de la iglesia del Monasterio de Cañas</image:title>
+    </image:image>
+    <image:image>
+      <image:loc>https://monasteriodecanas.org/assets/img/sala-capitular.webp</image:loc>
+      <image:title>Sala Capitular del Monasterio de Cañas</image:title>
+    </image:image>
+    <image:image>
+      <image:loc>https://monasteriodecanas.org/assets/img/sala-reliquias.webp</image:loc>
+      <image:title>Sala de Reliquias del Monasterio de Cañas</image:title>
+    </image:image>
+    <image:image>
+      <image:loc>https://monasteriodecanas.org/assets/img/cilla-museo1.webp</image:loc>
+      <image:title>Cilla-Museo del Monasterio de Cañas</image:title>
+    </image:image>
   </url>
 
   <url>
     <loc>https://monasteriodecanas.org/tarifas.html</loc>
+    <lastmod>2026-05-16</lastmod>
     <priority>0.9</priority>
     <changefreq>monthly</changefreq>
   </url>
 
   <url>
     <loc>https://monasteriodecanas.org/galeria.html</loc>
+    <lastmod>2026-05-16</lastmod>
     <priority>0.8</priority>
     <changefreq>monthly</changefreq>
+    <image:image>
+      <image:loc>https://monasteriodecanas.org/assets/img/claustro-patio.webp</image:loc>
+      <image:title>Claustro del Monasterio de Cañas</image:title>
+    </image:image>
   </url>
 
   <url>
     <loc>https://monasteriodecanas.org/noticias.html</loc>
+    <lastmod>2026-05-16</lastmod>
     <priority>0.7</priority>
     <changefreq>weekly</changefreq>
   </url>
 
   <url>
     <loc>https://monasteriodecanas.org/contacto.html</loc>
+    <lastmod>2026-05-16</lastmod>
     <priority>0.7</priority>
     <changefreq>yearly</changefreq>
   </url>

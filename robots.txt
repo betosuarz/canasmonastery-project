@@ -1,10 +1,50 @@
+# Monasterio de Cañas — robots.txt
+# https://monasteriodecanas.org/
+
 User-agent: *
 Allow: /
-
 Disallow: /aviso-legal.html
 Disallow: /privacidad.html
 Disallow: /cookies.html
 Disallow: /terminos.html
+Disallow: /audioguia/
 Disallow: /.claude/
+Disallow: /assets/video/
+
+# Permitir indexación de imágenes
+User-agent: Googlebot-Image
+Allow: /assets/img/
+
+User-agent: Googlebot
+Allow: /
+
+User-agent: Bingbot
+Allow: /
+
+# Bloquear scrapers agresivos / AI bots no deseados
+User-agent: GPTBot
+Disallow: /
+
+User-agent: CCBot
+Disallow: /
+
+User-agent: ChatGPT-User
+Disallow: /
+
+User-agent: anthropic-ai
+Disallow: /
+
+User-agent: PerplexityBot
+Disallow: /
+
+User-agent: Bytespider
+Disallow: /
+
+User-agent: AhrefsBot
+Crawl-delay: 10
+
+User-agent: SemrushBot
+Crawl-delay: 10
 
 Sitemap: https://monasteriodecanas.org/sitemap.xml
+Host: https://monasteriodecanas.org

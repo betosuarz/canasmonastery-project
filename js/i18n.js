@@ -700,7 +700,17 @@
     'tr.unit.supp':   { es: 'suplemento al precio de grupo', en: 'supplement to group price', fr: 'supplément au prix du groupe', de: 'Aufschlag auf den Gruppenpreis', it: 'supplemento al prezzo di gruppo', pt: 'suplemento ao preço de grupo', eu: 'taldeko prezioaren gehigarria', ca: 'suplement al preu de grup', ko: '그룹 가격 추가 요금' },
     'tr.free.inc1':  { es: 'Acceso libre',               en: 'Free access',                fr: 'Accès libre',                de: 'Freier Eintritt',             it: 'Accesso libero',             pt: 'Acesso livre',               eu: 'Sarrera askea',              ca: 'Accés lliure',               ko: '무료 입장' },
     'tr.free.inc2':  { es: 'Acompañado de adulto',       en: 'Accompanied by adult',       fr: 'Accompagné d\'un adulte',    de: 'In Begleitung eines Erwachsenen', it: 'Accompagnato da adulto',    pt: 'Acompanhado de adulto',      eu: 'Heldu batekin lagunduta',    ca: 'Acompanyat d\'adult',        ko: '성인 동반' },
-    'tr.adult.note': { es: '', en: '', fr: '', de: '', it: '', pt: '', eu: '', ca: '', ko: '' },
+    'tr.adult.note': {
+      es: 'ATENCIÓN: Visitas por libre, no es necesario reservar con antelación. Las entradas se pueden adquirir directamente en taquillas del Monasterio el día de su visita.',
+      en: 'NOTICE: Self-guided visits do not require advance booking. Tickets can be purchased directly at the Monastery ticket office on the day of your visit.',
+      fr: 'ATTENTION : Les visites libres ne nécessitent pas de réservation à l\'avance. Les billets peuvent être achetés directement à la billetterie du Monastère le jour de votre visite.',
+      de: 'ACHTUNG: Für Besichtigungen auf eigene Faust ist keine Vorabreservierung erforderlich. Tickets können am Tag Ihres Besuchs direkt an der Kasse des Klosters erworben werden.',
+      it: 'ATTENZIONE: Le visite libere non richiedono prenotazione anticipata. I biglietti possono essere acquistati direttamente alla biglietteria del Monastero il giorno della visita.',
+      pt: 'ATENÇÃO: As visitas livres não requerem reserva antecipada. Os bilhetes podem ser adquiridos diretamente na bilheteira do Mosteiro no dia da sua visita.',
+      eu: 'KONTUZ: Bisita libreek ez dute aurrez erreserbatu beharrik. Sarrerak bisitaren egunean bertan eros daitezke Monasterioko leihatilan.',
+      ca: 'ATENCIÓ: Les visites lliures no requereixen reserva amb antelació. Les entrades es poden adquirir directament a les taquilles del Monestir el dia de la visita.',
+      ko: '안내: 자유 관람은 사전 예약이 필요하지 않습니다. 방문 당일 수도원 매표소에서 직접 티켓을 구매하실 수 있습니다.'
+    },
     'tr.red.note':   {
       es: 'Válido para menores de 6 a 14 años acreditados en taquilla.',
       en: 'Valid for children aged 6–14, verified at the ticket office.',

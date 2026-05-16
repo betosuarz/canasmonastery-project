@@ -1248,6 +1248,41 @@ p {
   margin-top: .75rem
 }
 
+.rate-note--alert {
+  color: #c0392b;
+  font-weight: 700;
+  font-style: normal
+}
+
+.rates-section-note {
+  text-align: center;
+  font-size: .9rem;
+  margin: -.5rem 0 1.25rem
+}
+
+.rates-section-alert {
+  display: flex;
+  align-items: center;
+  gap: .75rem;
+  background: #fdecea;
+  border: 1px solid #f5b7b1;
+  border-left: 4px solid #c0392b;
+  color: #a93226;
+  font-weight: 500;
+  font-size: .95rem;
+  padding: .85rem 1.1rem;
+  border-radius: 8px;
+  margin: 0 auto 1.5rem;
+  max-width: 720px
+}
+
+.rates-section-alert__icon {
+  flex: 0 0 22px;
+  width: 22px;
+  height: 22px;
+  color: #c0392b
+}
+
 .rates-info-box {
   background: var(--c-parch);
   border: 1px solid var(--c-border);

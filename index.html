@@ -4,26 +4,166 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Monasterio de Cañas | Monasterio Cisterciense de Santa María · La Rioja</title>
   <meta name="description"
-    content="Monasterio de Cañas — Visita el Monasterio Cisterciense de Santa María de San Salvador de Cañas, La Rioja. Arte gótico del siglo XIII, reliquias, sala capitular, museo y visitas guiadas.">
-  <meta name="robots" content="index, follow">
+    content="Visita el Monasterio de Cañas, joya cisterciense del siglo XII en La Rioja. Iglesia, Claustro, Sala Capitular, reliquias y Cilla-Museo. ¡Reserva!">
+  <meta name="keywords"
+    content="Monasterio de Cañas, Monasterio Cisterciense, Santa María de San Salvador, La Rioja, abadía cisterciense, monasterio románico, claustro gótico, Sala Capitular, Doña Urraca, monjas cistercienses, visitar monasterio La Rioja, qué ver en La Rioja, turismo religioso La Rioja">
+  <meta name="author" content="Monasterio de Cañas">
+  <meta name="publisher" content="Monasterio de Santa María de San Salvador de Cañas">
+  <meta name="robots" content="index, follow, max-image-preview:large, max-snippet:-1, max-video-preview:-1">
+  <meta name="googlebot" content="index, follow, max-image-preview:large, max-snippet:-1, max-video-preview:-1">
+  <meta name="bingbot" content="index, follow">
+  <meta name="theme-color" content="#8b6f3f">
+  <meta name="format-detection" content="telephone=no">
+  <meta name="referrer" content="strict-origin-when-cross-origin">
+
+  <!-- Geo -->
+  <meta name="geo.region" content="ES-LO">
+  <meta name="geo.placename" content="Cañas, La Rioja">
+  <meta name="geo.position" content="42.4280;-2.9244">
+  <meta name="ICBM" content="42.4280, -2.9244">
+
   <link rel="canonical" href="https://monasteriodecanas.org/">
+
+  <!-- Open Graph -->
   <meta property="og:type" content="website">
   <meta property="og:url" content="https://monasteriodecanas.org/">
-  <meta property="og:title" content="Monasterio de Cañas · La Rioja">
+  <meta property="og:title" content="Monasterio de Cañas | Monasterio Cisterciense de Santa María · La Rioja">
   <meta property="og:description"
-    content="Visita el Monasterio Cisterciense de Santa María de San Salvador de Cañas, La Rioja. Arte románico del siglo XII, reliquias, museo y visitas guiadas.">
+    content="Visita el Monasterio de Cañas, joya cisterciense del siglo XII en La Rioja. Iglesia, Claustro, Sala Capitular, reliquias y Cilla-Museo. ¡Reserva!">
   <meta property="og:image" content="https://monasteriodecanas.org/assets/img/monasterio-exterior.webp">
+  <meta property="og:image:secure_url" content="https://monasteriodecanas.org/assets/img/monasterio-exterior.webp">
+  <meta property="og:image:type" content="image/webp">
+  <meta property="og:image:width" content="1200">
+  <meta property="og:image:height" content="630">
+  <meta property="og:image:alt" content="Monasterio de Cañas, vista exterior de la abadía cisterciense en La Rioja">
   <meta property="og:locale" content="es_ES">
+  <meta property="og:locale:alternate" content="en_GB">
+  <meta property="og:locale:alternate" content="fr_FR">
+  <meta property="og:locale:alternate" content="de_DE">
+  <meta property="og:locale:alternate" content="it_IT">
+  <meta property="og:locale:alternate" content="pt_PT">
+  <meta property="og:locale:alternate" content="eu_ES">
+  <meta property="og:locale:alternate" content="ca_ES">
+  <meta property="og:locale:alternate" content="ko_KR">
   <meta property="og:site_name" content="Monasterio de Cañas">
-  <title>Monasterio de la Luz · Inicio</title>
-  <link rel="icon" href="assets/img/favicon.webp">
+
+  <!-- Twitter Card -->
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:url" content="https://monasteriodecanas.org/">
+  <meta name="twitter:title" content="Monasterio de Cañas | Abadía Cisterciense · La Rioja">
+  <meta name="twitter:description" content="Visita el Monasterio de Cañas, joya cisterciense del siglo XII en La Rioja. Iglesia, Claustro, Sala Capitular y Cilla-Museo. ¡Reserva!">
+  <meta name="twitter:image" content="https://monasteriodecanas.org/assets/img/monasterio-exterior.webp">
+  <meta name="twitter:image:alt" content="Monasterio de Cañas, abadía cisterciense en La Rioja">
+
+  <!-- Icons & manifest (favicon adaptativo a tema claro/oscuro) -->
+  <link rel="icon" type="image/svg+xml" href="favicon_black.svg" media="(prefers-color-scheme: light)">
+  <link rel="icon" type="image/svg+xml" href="favicon.svg" media="(prefers-color-scheme: dark)">
+  <link rel="alternate icon" type="image/png" href="assets/img/favicon.png">
+  <link rel="apple-touch-icon" href="assets/img/favicon.png">
+  <link rel="manifest" href="site.webmanifest">
+
+  <!-- Performance hints -->
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link rel="dns-prefetch" href="https://fonts.googleapis.com">
+  <link rel="preload" as="image" href="assets/img/monasterio-exterior.webp" fetchpriority="high">
   <link
     href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,500;0,600;1,300;1,400&family=Jost:wght@300;400;500&display=swap"
     rel="stylesheet">
   <link rel="stylesheet" href="css/style.css">
+
+  <!-- Structured Data: Monastery + TouristAttraction + Organization + WebSite -->
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@graph": [
+      {
+        "@type": ["PlaceOfWorship", "Monastery", "TouristAttraction", "LandmarkOrHistoricalBuilding"],
+        "@id": "https://monasteriodecanas.org/#monastery",
+        "name": "Monasterio de Cañas",
+        "alternateName": ["Monasterio de Santa María de San Salvador de Cañas", "Monasterio Cisterciense de Cañas", "Monasterio de la Luz"],
+        "description": "Monasterio cisterciense femenino del siglo XII fundado por Don Lope Díaz de Haro. Conserva una iglesia gótico-cisterciense, claustro, Sala Capitular con el sepulcro de Doña Urraca López de Haro, Sala de Reliquias y Cilla-Museo.",
+        "url": "https://monasteriodecanas.org/",
+        "image": [
+          "https://monasteriodecanas.org/assets/img/monasterio-exterior.webp",
+          "https://monasteriodecanas.org/assets/img/claustro-patio.webp",
+          "https://monasteriodecanas.org/assets/img/abside-iglesia.webp"
+        ],
+        "logo": "https://monasteriodecanas.org/assets/img/favicon.png",
+        "telephone": "+34941379145",
+        "email": "entradas@monasteriodecanas.org",
+        "address": {
+          "@type": "PostalAddress",
+          "streetAddress": "Plaza Carretera 12",
+          "addressLocality": "Cañas",
+          "addressRegion": "La Rioja",
+          "postalCode": "26325",
+          "addressCountry": "ES"
+        },
+        "geo": {
+          "@type": "GeoCoordinates",
+          "latitude": 42.4280,
+          "longitude": -2.9244
+        },
+        "openingHoursSpecification": [
+          {
+            "@type": "OpeningHoursSpecification",
+            "dayOfWeek": ["Monday", "Tuesday", "Wednesday", "Thursday", "Friday", "Saturday", "Sunday"],
+            "opens": "10:30",
+            "closes": "14:00"
+          },
+          {
+            "@type": "OpeningHoursSpecification",
+            "dayOfWeek": ["Monday", "Tuesday", "Wednesday", "Thursday", "Friday", "Saturday", "Sunday"],
+            "opens": "16:00",
+            "closes": "19:30"
+          }
+        ],
+        "religiousOrder": "Orden del Císter",
+        "isAccessibleForFree": false,
+        "tourBookingPage": "https://monasteriodecanas.org/contacto.html",
+        "publicAccess": true,
+        "foundingDate": "1170",
+        "founder": {
+          "@type": "Person",
+          "name": "Don Lope Díaz de Haro"
+        },
+        "sameAs": [
+          "https://es.wikipedia.org/wiki/Monasterio_de_Ca%C3%B1as"
+        ]
+      },
+      {
+        "@type": "Organization",
+        "@id": "https://monasteriodecanas.org/#organization",
+        "name": "Monasterio de Cañas",
+        "url": "https://monasteriodecanas.org/",
+        "logo": {
+          "@type": "ImageObject",
+          "url": "https://monasteriodecanas.org/assets/img/favicon.png",
+          "width": 512,
+          "height": 512
+        },
+        "contactPoint": {
+          "@type": "ContactPoint",
+          "telephone": "+34941379145",
+          "email": "entradas@monasteriodecanas.org",
+          "contactType": "reservations",
+          "availableLanguage": ["es", "en", "fr", "de", "it", "pt", "eu", "ca", "ko"]
+        }
+      },
+      {
+        "@type": "WebSite",
+        "@id": "https://monasteriodecanas.org/#website",
+        "url": "https://monasteriodecanas.org/",
+        "name": "Monasterio de Cañas",
+        "publisher": { "@id": "https://monasteriodecanas.org/#organization" },
+        "inLanguage": ["es", "en", "fr", "de", "it", "pt", "eu", "ca", "ko"]
+      }
+    ]
+  }
+  </script>
 
 </head>
 
@@ -122,8 +262,7 @@
             <p class="video-caption" data-i18n="vid.caption">Monasterio de Santa María de San Salvador de Cañas</p>
           </div>
           YouTube embed (descomentar cuando esté disponible): -->
-          <iframe width="100%" height="100%"
-            src="https://www.catedralsantodomingo.org/wp-content/uploads/2026/03/MonasterioCanas_ene2026.mp4"
+          <iframe width="100%" height="100%" src="./assets/video/monasterioCanas2026.mp4"
             title="Vídeo del Monasterio de Cañas" frameborder="0"
             allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
             allowfullscreen></iframe>

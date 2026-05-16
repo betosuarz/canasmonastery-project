@@ -1,0 +1,33 @@
+{
+  "name": "Monasterio de Cañas",
+  "short_name": "Mon. Cañas",
+  "description": "Monasterio Cisterciense de Santa María de San Salvador de Cañas, La Rioja. Iglesia del siglo XII, Claustro, Sala Capitular y Cilla-Museo.",
+  "start_url": "/",
+  "scope": "/",
+  "display": "standalone",
+  "orientation": "portrait",
+  "background_color": "#ffffff",
+  "theme_color": "#8b6f3f",
+  "lang": "es",
+  "dir": "ltr",
+  "categories": ["travel", "culture", "education", "religion"],
+  "icons": [
+    {
+      "src": "/assets/img/favicon.png",
+      "sizes": "192x192",
+      "type": "image/png",
+      "purpose": "any"
+    },
+    {
+      "src": "/assets/img/favicon.png",
+      "sizes": "512x512",
+      "type": "image/png",
+      "purpose": "any maskable"
+    },
+    {
+      "src": "/assets/img/favicon.webp",
+      "sizes": "any",
+      "type": "image/webp"
+    }
+  ]
+}
