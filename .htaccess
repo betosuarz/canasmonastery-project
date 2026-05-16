@@ -194,6 +194,6 @@ FileETag None
 
 
 # ============================================================
-#  PÁGINAS DE ERROR (opcional — comentado hasta que crees una)
+#  PÁGINAS DE ERROR
 # ============================================================
-# ErrorDocument 404 /404.html
+ErrorDocument 404 /404.html

@@ -1,0 +1,158 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Página no encontrada (404) | Monasterio de Cañas</title>
+  <meta name="description"
+    content="La página que buscas no existe o ha sido movida. Vuelve al inicio del Monasterio de Cañas o consulta tarifas, galería y contacto.">
+  <meta name="robots" content="noindex, follow">
+  <meta name="theme-color" content="#8b6f3f">
+
+  <link rel="canonical" href="https://monasteriodecanas.org/404.html">
+
+  <meta property="og:type" content="website">
+  <meta property="og:url" content="https://monasteriodecanas.org/404.html">
+  <meta property="og:title" content="Página no encontrada · Monasterio de Cañas">
+  <meta property="og:description" content="La página que buscas no existe. Vuelve al inicio del Monasterio de Cañas.">
+  <meta property="og:image" content="https://monasteriodecanas.org/assets/img/monasterio-exterior.webp">
+  <meta property="og:locale" content="es_ES">
+  <meta property="og:site_name" content="Monasterio de Cañas">
+
+  <link rel="icon" type="image/svg+xml" href="favicon_black.svg" media="(prefers-color-scheme: light)">
+  <link rel="icon" type="image/svg+xml" href="favicon.svg" media="(prefers-color-scheme: dark)">
+  <link rel="alternate icon" type="image/png" href="assets/img/favicon.png">
+  <link rel="apple-touch-icon" href="assets/img/favicon.png">
+  <link rel="manifest" href="site.webmanifest">
+
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link
+    href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,500;0,600;1,300;1,400&family=Jost:wght@300;400;500&display=swap"
+    rel="stylesheet">
+  <link rel="stylesheet" href="css/style.css">
+
+  <style>
+    .err-section {
+      padding: 4rem 0 6rem;
+      text-align: center;
+    }
+
+    .err-code {
+      font-family: var(--ff-d);
+      font-size: clamp(6rem, 18vw, 12rem);
+      font-weight: 300;
+      line-height: 1;
+      color: var(--c-gold);
+      letter-spacing: .02em;
+      margin: 0;
+    }
+
+    .err-divider {
+      width: 60px;
+      height: 1px;
+      background: var(--c-gold);
+      opacity: .5;
+      margin: 1.5rem auto 2rem;
+    }
+
+    .err-msg {
+      font-family: var(--ff-d);
+      font-size: clamp(1.4rem, 3vw, 1.9rem);
+      color: var(--c-text, #2a2520);
+      font-weight: 400;
+      max-width: 640px;
+      margin: 0 auto 1rem;
+      line-height: 1.4;
+    }
+
+    .err-sub {
+      color: var(--c-muted, #7a6f63);
+      max-width: 560px;
+      margin: 0 auto 2.5rem;
+      font-size: 1rem;
+      line-height: 1.6;
+    }
+
+    .err-actions {
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: center;
+      gap: 1rem;
+      margin-bottom: 3rem;
+    }
+
+    .err-links {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
+      gap: 1rem;
+      max-width: 720px;
+      margin: 0 auto;
+      padding: 2rem 1rem 0;
+      border-top: 1px solid rgba(0, 0, 0, .08);
+    }
+
+    .err-links a {
+      color: var(--c-text, #2a2520);
+      text-decoration: none;
+      font-size: .92rem;
+      padding: .65rem .5rem;
+      border-radius: 6px;
+      transition: background .2s, color .2s;
+    }
+
+    .err-links a:hover {
+      background: rgba(184, 149, 58, .08);
+      color: var(--c-gold);
+    }
+  </style>
+</head>
+
+<body>
+
+  <div id="nav-placeholder"></div>
+
+  <main>
+
+    <div class="page-hero" aria-label="Encabezado">
+      <span class="page-hero-over" data-i18n="err.over">Error</span>
+      <h1 class="page-hero-title" data-i18n="err.title">Página no encontrada</h1>
+      <p class="page-hero-sub" data-i18n="err.sub">El silencio del claustro también responde</p>
+      <div class="page-hero-line" aria-hidden="true"></div>
+    </div>
+
+    <section class="err-section">
+      <div class="container">
+        <p class="err-code" aria-label="Error 404">404</p>
+        <div class="err-divider" aria-hidden="true"></div>
+        <p class="err-msg" data-i18n="err.msg">La página que buscas no existe o ha sido movida.</p>
+        <p class="err-sub" data-i18n="err.help">
+          Es posible que el enlace esté roto o la dirección sea incorrecta. Puedes volver al inicio o explorar el monasterio desde los enlaces de abajo.
+        </p>
+
+        <div class="err-actions">
+          <a href="/" class="btn btn-primary" data-i18n="err.btn.home">Volver al inicio</a>
+          <a href="/contacto.html" class="btn btn-ghost" data-i18n="err.btn.contact">Contactar</a>
+        </div>
+
+        <nav class="err-links" aria-label="Enlaces útiles">
+          <a href="/abadia.html" data-i18n="err.link.abbey">La Abadía</a>
+          <a href="/tarifas.html" data-i18n="err.link.rates">Tarifas y horarios</a>
+          <a href="/galeria.html" data-i18n="err.link.gallery">Galería</a>
+          <a href="/noticias.html" data-i18n="err.link.news">Noticias</a>
+        </nav>
+      </div>
+    </section>
+
+  </main>
+
+  <div id="footer-placeholder"></div>
+
+  <script src="js/nav-footer.js"></script>
+  <script src="js/i18n.js"></script>
+  <script src="js/shared.js"></script>
+  <script src="js/cookies-banner.js"></script>
+</body>
+
+</html>
