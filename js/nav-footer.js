@@ -9,7 +9,7 @@
   <header class="site-header" id="site-header">
     <nav class="nav-wrap" aria-label="Navegación principal">
       <a href="/" class="nav-logo" aria-label="Monasterio de la Luz — Inicio" style="flex-direction:row;align-items:center;gap:.65rem">
-        <img src="assets/img/favicon.webp" alt="" aria-hidden="true" width="32" height="32" style="width:32px;height:32px;object-fit:contain;flex-shrink:0">
+        <img src="favicon.svg" alt="" aria-hidden="true" width="32" height="32" style="width:32px;height:32px;object-fit:contain;flex-shrink:0">
         <span style="display:flex;flex-direction:column;line-height:1.1">
           <span class="logo-l1">Monasterio</span>
           <span class="logo-l2">de la Luz</span>
@@ -51,7 +51,10 @@
   <footer class="site-footer" role="contentinfo">
     <div class="footer-main">
       <div class="ft-brand">
-        <p class="ft-brand-name">Monasterio de la Luz</p>
+        <p class="ft-brand-name" style="display:flex;align-items:center;gap:.6rem">
+          <img src="favicon.svg" alt="" aria-hidden="true" width="30" height="30" style="width:30px;height:30px;object-fit:contain;flex-shrink:0">
+          Monasterio de la Luz
+        </p>
         <p class="ft-brand-sub">Monasterio de Santa María de San Salvador de Cañas</p>
         <p class="ft-brand-addr" data-i18n="ft.brand.addr">Carretera 12 · 26325 Cañas, La Rioja, España</p>
       </div>

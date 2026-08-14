@@ -1827,6 +1827,74 @@ p {
   font-style: italic
 }
 
+.form-guided-note {
+  margin-top: -.35rem;
+  padding: .8rem 1.05rem;
+  background: rgba(184, 149, 58, .1);
+  border: 1px solid rgba(184, 149, 58, .28);
+  border-left: 3px solid var(--c-gold);
+  border-radius: var(--r-md);
+  color: var(--c-gold-lt);
+  font-size: .8rem;
+  line-height: 1.55
+}
+
+/* Tipo de visita — selección única con ambas opciones visibles */
+.form-type-group {
+  display: flex;
+  flex-direction: column;
+  gap: .4rem
+}
+
+.form-type-label {
+  font-size: .7rem;
+  font-weight: 500;
+  letter-spacing: .15em;
+  text-transform: uppercase;
+  color: rgba(255, 255, 255, .45)
+}
+
+.form-radio-row {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 1rem
+}
+
+.form-radio-option {
+  display: flex;
+  align-items: center;
+  gap: .6rem;
+  padding: .75rem 1rem;
+  background: rgba(255, 255, 255, .06);
+  border: 1px solid rgba(255, 255, 255, .12);
+  border-radius: var(--r-sm);
+  font-size: .9rem;
+  font-weight: 400;
+  letter-spacing: normal;
+  text-transform: none;
+  color: rgba(255, 255, 255, .85);
+  cursor: pointer;
+  transition: border-color .2s ease, background .2s ease
+}
+
+.form-radio-option:hover {
+  border-color: rgba(184, 149, 58, .4)
+}
+
+.form-radio-option input[type="radio"] {
+  accent-color: var(--c-gold);
+  width: 1.05rem;
+  height: 1.05rem;
+  flex-shrink: 0;
+  cursor: pointer
+}
+
+.form-radio-option.is-checked {
+  border-color: rgba(184, 149, 58, .6);
+  background: rgba(184, 149, 58, .12);
+  color: var(--c-white)
+}
+
 .form-submit-row {
   display: flex;
   align-items: center;

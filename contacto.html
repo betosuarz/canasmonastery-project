@@ -36,10 +36,7 @@
   <meta name="twitter:description" content="Reserva tu visita al Monasterio de Cañas: 941 37 91 45 · entradas@monasteriodecanas.org. Horarios y cómo llegar.">
   <meta name="twitter:image" content="https://monasteriodecanas.org/assets/img/monasterio-exterior.webp">
 
-  <link rel="icon" type="image/svg+xml" href="favicon_black.svg" media="(prefers-color-scheme: light)">
-  <link rel="icon" type="image/svg+xml" href="favicon.svg" media="(prefers-color-scheme: dark)">
-  <link rel="alternate icon" type="image/png" href="assets/img/favicon.png">
-  <link rel="apple-touch-icon" href="assets/img/favicon.png">
+  <link rel="icon" href="favicon.svg">
   <link rel="manifest" href="site.webmanifest">
 
   <link rel="preconnect" href="https://fonts.googleapis.com">
@@ -228,28 +225,27 @@
                 <input type="email" id="email" name="email" placeholder="tu@correo.es" required autocomplete="email">
               </div>
 
-              <div class="form-row">
-                <div class="form-group">
-                  <label for="tipo-visita"><span data-i18n="ct.f.type">Tipo de visita</span> <span aria-hidden="true"
-                      style="color:var(--c-gold)">*</span></label>
-                  <select id="tipo-visita" name="tipo-visita" required>
-                    <option value="" disabled selected data-i18n="ct.f.type.ph">Selecciona una opción</option>
-                    <option value="no-guiada" data-i18n="ct.f.type.ng">Sin guía</option>
-                    <option value="guiada" data-i18n="ct.f.type.g">Con guía</option>
-                  </select>
-                </div>
-                <div class="form-group">
-                  <label for="num-personas"><span data-i18n="ct.f.people">Número de personas</span> <span
-                      aria-hidden="true" style="color:var(--c-gold)">*</span></label>
-                  <input type="number" id="num-personas" name="num-personas" min="1" max="200" placeholder="Ej: 4"
-                    required>
+              <!-- Tipo de visita (selección única; ambas opciones visibles en una fila) -->
+              <div class="form-type-group">
+                <span class="form-type-label"><span data-i18n="ct.f.type">Tipo de visita</span> <span
+                    aria-hidden="true" style="color:var(--c-gold)">*</span></span>
+                <div class="form-radio-row">
+                  <label class="form-radio-option">
+                    <input type="radio" name="tipo-visita" value="no-guiada" required>
+                    <span data-i18n="ct.f.type.ng">Visita sin guía</span>
+                  </label>
+                  <label class="form-radio-option">
+                    <input type="radio" name="tipo-visita" value="guiada" required>
+                    <span data-i18n="ct.f.type.g">Visita guiada</span>
+                  </label>
                 </div>
               </div>
 
-              <div class="form-group">
-                <label for="ninos" data-i18n="ct.f.kids">Niños entre 6 y 14 años</label>
-                <input type="number" id="ninos" name="ninos" min="0" max="200" placeholder="0" value="0">
-              </div>
+              <!-- Aviso: las visitas guiadas son continuas, sin horario fijo -->
+              <p class="form-guided-note" id="guided-note" role="note" hidden data-i18n="ct.f.guided.note">
+                Las visitas guiadas son continuas y no tienen un horario fijo: solicítalas directamente en
+                taquilla. Si ya ha comenzado una, podrás unirte al grupo sin problema.
+              </p>
 
               <div class="form-row">
                 <div class="form-group">
@@ -258,21 +254,44 @@
                   <input type="date" id="fecha-visita" name="fecha-visita" required>
                 </div>
                 <div class="form-group">
-                  <label for="hora-visita"><span data-i18n="ct.f.time">Horario preferido</span> <span aria-hidden="true"
+                  <label for="hora-visita"><span data-i18n="ct.f.time">Hora aproximada de visita</span> <span aria-hidden="true"
                       style="color:var(--c-gold)">*</span></label>
                   <select id="hora-visita" name="hora-visita" required>
-                    <option value="" disabled selected data-i18n="ct.f.time.ph">Selecciona horario</option>
-                    <optgroup label="— Mañana / Morning —">
-                      <option value="11:00" data-i18n="ct.f.time.m1">Mañana — 11:00 h</option>
-                      <option value="12:00" data-i18n="ct.f.time.m2">Mañana — 12:00 h</option>
-                      <option value="13:00" data-i18n="ct.f.time.m3">Mañana — 13:00 h</option>
+                    <option value="" disabled selected data-i18n="ct.f.time.ph">Selecciona una hora</option>
+                    <optgroup label="Mañana">
+                      <option value="10:30">10:30</option>
+                      <option value="11:00">11:00</option>
+                      <option value="11:30">11:30</option>
+                      <option value="12:00">12:00</option>
+                      <option value="12:30">12:30</option>
+                      <option value="13:00">13:00</option>
+                      <option value="13:30">13:30</option>
+                      <option value="14:00">14:00</option>
                     </optgroup>
-                    <optgroup label="— Tarde / Afternoon —">
-                      <option value="16:00" data-i18n="ct.f.time.t1">Tarde — 16:00 h</option>
-                      <option value="17:00" data-i18n="ct.f.time.t2">Tarde — 17:00 h</option>
-                      <option value="18:00" data-i18n="ct.f.time.t3">Tarde — 18:00 h</option>
+                    <optgroup label="Tarde">
+                      <option value="16:00">16:00</option>
+                      <option value="16:30">16:30</option>
+                      <option value="17:00">17:00</option>
+                      <option value="17:30">17:30</option>
+                      <option value="18:00">18:00</option>
+                      <option value="18:30">18:30</option>
+                      <option value="19:00">19:00</option>
                     </optgroup>
                   </select>
+                </div>
+              </div>
+
+              <!-- Personas totales + niños -->
+              <div class="form-row">
+                <div class="form-group">
+                  <label for="num-personas"><span data-i18n="ct.f.people">Número de personas</span> <span
+                      aria-hidden="true" style="color:var(--c-gold)">*</span></label>
+                  <input type="number" id="num-personas" name="num-personas" min="1" max="200" placeholder="Ej: 4"
+                    required>
+                </div>
+                <div class="form-group">
+                  <label for="ninos" data-i18n="ct.f.kids">Niños entre 6 y 14 años</label>
+                  <input type="number" id="ninos" name="ninos" min="0" max="200" placeholder="0" value="0">
                 </div>
               </div>
 
@@ -409,6 +428,33 @@
        4. En EmailJS → Account → Public Key
           Copia tu Public Key → reemplaza 'TU_PUBLIC_KEY' abajo.
        ============================================================ */
+
+    // Aviso de visitas guiadas: son continuas y no tienen un horario fijo.
+    // Se muestra al marcar "Visita guiada" en el tipo de visita.
+    // Se define antes de EmailJS para que funcione aunque el SDK externo no cargue.
+    const tipoRadios = document.querySelectorAll('input[name="tipo-visita"]');
+    const guidedNoteEl = document.getElementById('guided-note');
+    function toggleGuidedNote() {
+      const checkedVal = document.querySelector('input[name="tipo-visita"]:checked')?.value;
+      if (guidedNoteEl) guidedNoteEl.hidden = checkedVal !== 'guiada';
+      // Resalta la opción marcada (sin depender del selector CSS :has()).
+      tipoRadios.forEach(r => r.closest('.form-radio-option')?.classList.toggle('is-checked', r.checked));
+    }
+    tipoRadios.forEach(r => r.addEventListener('change', toggleGuidedNote));
+
+    // Localiza las etiquetas de los grupos de horario (Mañana / Tarde) en todos los idiomas.
+    // Las horas son numéricas (universales); solo se traduce el encabezado de cada grupo.
+    function updateVisitOptgroups() {
+      const og = document.querySelectorAll('#hora-visita optgroup');
+      if (window.i18n && og.length >= 2) {
+        og[0].label = window.i18n.t('ct.f.time.morning');
+        og[1].label = window.i18n.t('ct.f.time.afternoon');
+      }
+    }
+    new MutationObserver(updateVisitOptgroups).observe(
+      document.documentElement, { attributes: true, attributeFilter: ['lang'] });
+    updateVisitOptgroups();
+
     const EMAILJS_SERVICE_ID = 'service_25cycp4';
     const EMAILJS_TEMPLATE_ID = 'template_3tk7s14';
     const EMAILJS_PUBLIC_KEY = '3_AxR1MATPmKodCHZ';
@@ -493,6 +539,7 @@
           successEl.style.display = 'block';
         }
         f.reset();
+        toggleGuidedNote();
       } catch (err) {
         console.error('EmailJS error:', err);
         // Fallback: abrir cliente de correo con los datos
